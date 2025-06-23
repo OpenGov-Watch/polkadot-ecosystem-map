@@ -2,39 +2,45 @@
   "name": "polkadot-ecosystem-renderer",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
-  "scripts": {
+  "type": "module",  "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "type-check": "tsc --noEmit",
     "validate-data": "tsx src/scripts/validate-data.ts",
-    "generate-types": "json2ts -i data.schema.yml -o src/types/generated.ts"
+    "validate-temp-data": "tsx scripts/validate-temp-data.ts",
+    "check-compatibility": "tsx scripts/check-schema-compatibility.ts public/data.schema.yml temp-ecosystem-data/data.schema.yml",
+    "generate-types": "json2ts -i data.schema.yml -o src/types/generated.ts",
+    "import-data": "tsx scripts/import-ecosystem-data.ts",
+    "update-data": "tsx scripts/import-ecosystem-data.ts update",
+    "data-help": "tsx scripts/import-ecosystem-data.ts help"
   },
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-force-graph-2d": "^1.25.4",
     "@tanstack/react-table": "^8.11.6",
+    "@types/node": "^24.0.3",
     "ajv": "^8.12.0",
     "ajv-formats": "^2.1.1",
     "js-yaml": "^4.1.0",
-    "react-router-dom": "^6.20.1"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-force-graph-2d": "^1.25.4",
+    "react-router-dom": "^6.20.1",
+    "yaml": "^2.8.0"
   },
   "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",
-    "@types/js-yaml": "^4.0.9",
     "@typescript-eslint/eslint-plugin": "^6.14.0",
     "@typescript-eslint/parser": "^6.14.0",
     "@vitejs/plugin-react": "^4.2.1",
     "eslint": "^8.55.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
-    "typescript": "^5.2.2",
-    "vite": "^5.0.8",
+    "json-schema-to-typescript": "^13.1.2",
     "tsx": "^4.6.2",
-    "json-schema-to-typescript": "^13.1.2"
+    "typescript": "^5.2.2",
+    "vite": "^5.0.8"
   }
 }

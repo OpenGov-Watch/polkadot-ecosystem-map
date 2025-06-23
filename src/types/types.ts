@@ -6,14 +6,14 @@ export interface EcosystemEntity {
   description?: string;
   website?: string;
   github?: string;
-  twitter?: string;
-  metrics?: {
+  twitter?: string;  metrics?: {
     stars?: number;
     forks?: number;
     contributors?: number;
     tx_count?: number;
     tvl?: number;
     market_cap?: number;
+    twitter_followers?: number;
     [key: string]: number | undefined;
   };
   tags?: string[];
@@ -105,16 +105,6 @@ export interface RenderConfig {
     width?: number;
     height?: number;
   };
-}
-
-// Data validation schema types
-export interface ValidationResult {
-  valid: boolean;
-  errors?: Array<{
-    field: string;
-    message: string;
-    value?: any;
-  }>;
 }
 
 // Context types

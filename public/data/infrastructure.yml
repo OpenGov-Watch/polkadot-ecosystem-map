@@ -1,78 +1,1088 @@
-- slug: "polkadot-js"
-  name: "Polkadot.js"
-  type: "infrastructure"
-  description: "Collection of tools, utilities and libraries for interacting with the Polkadot ecosystem"
-  website: "https://polkadot.js.org"
-  github: "https://github.com/polkadot-js"
-  twitter: "https://twitter.com/polkadotjs"
+- slug: acurast
+  name: Acurast
+  type: infrastructure
+  description: Decentralized Serverless Cloud protocol
+  website: https://acurast.com/
+  github: https://github.com/Acurast/acurast-substrate
+  twitter: https://twitter.com/Acurast
   metrics:
-    stars: 1689
-    forks: 1456
-    contributors: 234
+    stars: 16
+    twitter_followers: 18227
   tags:
-    - "javascript"
-    - "sdk"
-    - "api"
-    - "tools"
-  relationships:
-    - target: "substrate"
-      type: "builds-on"
-      weight: 10
-
-- slug: "substrate"
-  name: "Substrate"
-  type: "infrastructure"
-  description: "Modular framework for building blockchains"
-  website: "https://substrate.io"
-  github: "https://github.com/paritytech/substrate"
-  twitter: "https://twitter.com/substrate_io"
-  metrics:
-    stars: 8234
-    forks: 2654
-    contributors: 567
-  tags:
-    - "framework"
-    - "rust"
-    - "blockchain"
-    - "modular"
+    - oracle
+    - infra
+    - data
+    - depin
+    - polkadot
+    - polygon
+    - kusama
+    - aleph-zero
+    - ethereum
   relationships: []
-
-- slug: "parity-signer"
-  name: "Parity Signer"
-  type: "wallet"
-  description: "Air-gapped mobile wallet for Polkadot and Kusama"
-  website: "https://www.parity.io/technologies/signer/"
-  github: "https://github.com/paritytech/parity-signer"
+- slug: airgap
+  name: Airgap
+  type: wallet
+  description: non-custodial mobile wallet. AirGap Vault handles your private key
+    offline. Wallet companion communicates with blockchains.
+  website: https://airgap.it
+  github: https://github.com/airgap-it/airgap-vault
+  twitter: https://twitter.com/AirGap_it
   metrics:
-    stars: 456
-    forks: 123
-    contributors: 34
+    stars: 433
+    twitter_followers: 6544
   tags:
-    - "mobile"
-    - "air-gapped"
-    - "security"
-  relationships:
-    - target: "polkadot-js"
-      type: "integrates"
-      weight: 7
-
-- slug: "subscan"
-  name: "Subscan"
-  type: "infrastructure"
-  description: "Blockchain explorer for Substrate-based chains"
-  website: "https://subscan.io"
+    - wallet
+    - bitcoin
+    - ethereum
+    - polkadot
+    - kusama
+    - cosmos
+    - tezos
+  relationships: []
+- slug: aleph-zero
+  name: Aleph Zero
+  type: wallet
+  description: Public blockchain
+  website: https://alephzero.org/
+  github: https://github.com/aleph-zero-foundation/AlephBFT
+  twitter: https://twitter.com/Aleph__Zero
   metrics:
-    stars: 234
-    forks: 67
-    contributors: 23
+    stars: 119
+    twitter_followers: 159723
   tags:
-    - "explorer"
-    - "analytics"
-    - "substrate"
-  relationships:
-    - target: "substrate"
-      type: "builds-on"
-      weight: 9
-    - target: "polkadot-js"
-      type: "uses"
-      weight: 6
+    - privacy
+    - smart-contracts
+    - wallet
+    - aleph-zero
+    - polkadot
+  relationships: []
+- slug: apexti-web3metrics
+  name: Apexti / web3metrics
+  type: infrastructure
+  description: infrastructure and indexing services
+  website: https://www.apexti.com/
+  twitter: https://twitter.com/apexti
+  metrics:
+    twitter_followers: 11
+  tags:
+    - data
+    - analytics
+    - indexer
+    - polkadot
+    - kusama
+  relationships: []
+- slug: apillon
+  name: Apillon
+  type: infrastructure
+  description: unified API endpoints to web3 services
+  website: https://apillon.io
+  github: https://github.com/Apillon/sdk
+  twitter: https://twitter.com/Apillon
+  metrics:
+    stars: 4
+    twitter_followers: 42000
+  tags:
+    - infra
+    - api
+    - smart-contracts
+    - polkadot
+  relationships: []
+- slug: apron-labs
+  name: Apron Labs
+  type: infrastructure
+  description: API access to various blockchain networks
+  website: https://apron.network/
+  twitter: https://twitter.com/apronofficial1
+  metrics:
+    stars: 3
+    twitter_followers: 30383
+  tags:
+    - data
+    - api
+    - polkadot
+  relationships: []
+- slug: ares-protocol-mars
+  name: Ares Protocol / Mars
+  type: infrastructure
+  description: decentralized cross-chain oracle
+  website: https://www.aresprotocol.io/
+  github: https://github.com/aresprotocols/ares
+  twitter: https://twitter.com/AresProtocolLab
+  metrics:
+    stars: 55
+    twitter_followers: 29822
+  tags:
+    - oracle
+    - indexer
+    - polkadot
+    - bnb-chain
+    - kusama
+  relationships: []
+- slug: bittensor-tensor
+  name: Bittensor / Tensor
+  type: wallet
+  description: protocol for ML and AI
+  website: https://bittensor.com/
+  github: https://github.com/opentensor/bittensor
+  twitter: https://twitter.com/bittensor_
+  metrics:
+    stars: 1146
+    twitter_followers: 13975
+  tags:
+    - data
+    - wallet
+    - polkadot
+  relationships: []
+- slug: clv-clover-finance-sakura
+  name: CLV (Clover Finance) / Sakura
+  type: wallet
+  description: Smart contract platform, Multi-chain wallet and Chrome extension
+  website: http://clv.org
+  github: https://github.com/clover-network/clover
+  twitter: https://twitter.com/clv_org
+  metrics:
+    stars: 84
+    twitter_followers: 146133
+  tags:
+    - wallet
+    - evm
+    - defi
+    - nft
+    - dapp
+    - polkadot
+    - ethereum
+    - polygon
+  relationships: []
+- slug: cess
+  name: CESS
+  type: infrastructure
+  description: Layer 1 for Infinite Data Storage & Millisecond Execution Powering
+    DeSci, AI and DePIN Innovation
+  website: https://cess.network/#
+  github: https://github.com/CESSProject/cess
+  twitter: https://twitter.com/CESS_Storage
+  metrics:
+    stars: 258
+  tags:
+    - depin
+    - data
+    - infra
+    - kusama
+    - polkadot
+  relationships: []
+- slug: chainsafe
+  name: Chainsafe
+  type: bridge
+  description: platform to build games, IPFS/Filecoin network, encrypted file storage.
+  website: https://chainsafe.io/
+  github: https://github.com/ChainSafe/gossamer
+  twitter: https://twitter.com/ChainSafeth
+  metrics:
+    stars: 450
+    twitter_followers: 13527
+  tags:
+    - bridge
+    - data
+    - infra
+    - evm
+    - smart-contracts
+    - polkadot
+    - ethereum
+    - moonbeam
+  relationships: []
+- slug: dao-ipci
+  name: DAO IPCI
+  type: infrastructure
+  description: Blockchain technology for carbon markets, environmental assets and
+    liabilities
+  website: https://ipci.io/
+  github: https://github.com/DAO-IPCI/DAO-IPCI
+  twitter: https://twitter.com/DAO_IPCI
+  metrics:
+    stars: 33
+    twitter_followers: 849
+  tags:
+    - oracle
+    - marketplace
+    - smart-contracts
+    - polkadot
+  relationships: []
+- slug: din
+  name: DIN
+  type: infrastructure
+  description: AI Agent Blockchain infra
+  website: https://din.lol/
+  github: https://github.com/web3go-xyz/web3go.xyz
+  twitter: https://twitter.com/din_lol_
+  metrics:
+    stars: 10
+    twitter_followers: 87911
+  tags:
+    - data
+    - analytics
+    - api
+    - polkadot
+    - bnb-chain
+    - moonbeam
+  relationships: []
+- slug: deepbrain-chain
+  name: DeepBrain Chain
+  type: infrastructure
+  description: high-performance computing network, blockchain mainnet and GPU
+    computing mainnet.
+  website: https://www.deepbrainchain.org/
+  github: https://github.com/DeepBrainChain/DeepBrainChain-MainChain
+  twitter: https://twitter.com/DeepBrainChain
+  metrics:
+    stars: 22
+    twitter_followers: 53353
+  tags:
+    - infra
+    - polygon
+  relationships: []
+- slug: dock-trouvera
+  name: Dock - Trouvera
+  type: wallet
+  description: Verifiable credentials tools, certificates, wallet, web3 ID and auth0
+  website: https://www.dock.io
+  github: https://github.com/docknetwork/sdk
+  twitter: https://twitter.com/docknetwork
+  metrics:
+    stars: 86
+    twitter_followers: 60682
+  tags:
+    - wallet
+    - privacy
+    - polkadot
+  relationships: []
+- slug: dot-scanner
+  name: Dot Scanner
+  type: infrastructure
+  description: blockchain explorer
+  website: https://dotscanner.com/
+  twitter: https://twitter.com/TheDotScanner
+  metrics:
+    twitter_followers: 62
+  tags:
+    - infra
+  relationships: []
+- slug: encointer
+  name: Encointer
+  type: wallet
+  description: cryptocurrency for universal basic income and self-sovereign
+    identity system, wallet
+  website: https://encointer.org/
+  github: https://github.com/encointer/encointer-node
+  twitter: https://twitter.com/encointer
+  metrics:
+    stars: 25
+    twitter_followers: 1532
+  tags:
+    - wallet
+    - privacy
+    - defi
+    - kusama
+  relationships: []
+- slug: enjin-efinity
+  name: Enjin / Efinity
+  type: wallet
+  description: infrastructure for NFT, Metaverse, games and apps. NFT marketplace
+  website: https://enjin.io/products/efinity
+  github: https://github.com/enjin/platform
+  twitter: https://twitter.com/enjin
+  metrics:
+    stars: 13
+    twitter_followers: 511272
+  tags:
+    - nft
+    - game
+    - dapp
+    - smart-contracts
+    - wallet
+    - marketplace
+    - indexer
+    - polkadot
+    - kusama
+  relationships: []
+- slug: geminis-network
+  name: Geminis Network
+  type: infrastructure
+  description: Develop and execute high-speed smart contracts with built-in
+    Ethereum compatibility (EVM & EWASM) and interoperability in Solidity,
+    Vyper, and next-level programming languages like Rust, C ++, and Golang.
+  website: https://geminis.network/
+  metrics: {}
+  tags:
+    - evm
+    - smart-contracts
+  relationships: []
+- slug: hyperbridge
+  name: Hyperbridge
+  type: bridge
+  description: Interoperability protocol connecting blockchain networks.
+  website: https://hyperbridge.network
+  github: https://github.com/polytope-labs/hyperbridge
+  twitter: https://twitter.com/hyperbridge
+  metrics:
+    stars: 156
+  tags:
+    - bridge
+    - ethereum
+    - polkadot
+    - bnb-chain
+  relationships: []
+- slug: icesnow
+  name: ICE/SNOW
+  type: infrastructure
+  description: EVM and Wasm compatible network
+  website: https://github.com/icon-community/ice-substrate
+  twitter: https://twitter.com/helloiconworld
+  metrics:
+    twitter_followers: 10163
+  tags: []
+  relationships: []
+- slug: idavoll-network
+  name: Idavoll Network
+  type: infrastructure
+  description: cross-chain DAO platform
+  website: https://idavoll.network/
+  github: https://github.com/idavollnetwork/idavoll
+  twitter: https://twitter.com/idavollDAO
+  metrics:
+    stars: 6
+    twitter_followers: 17096
+  tags:
+    - dao
+    - polygon
+    - ethereum
+    - bnb-chain
+  relationships: []
+- slug: integritee
+  name: Integritee
+  type: bridge
+  description: public blockchain solution for securely processing sensitive
+    business or personal data
+  website: https://integritee.network/
+  github: https://github.com/integritee-network/worker
+  twitter: https://twitter.com/integri_t_e_e
+  metrics:
+    stars: 92
+    twitter_followers: 23519
+  tags:
+    - data
+    - privacy
+    - bridge
+    - polkadot
+  relationships: []
+- slug: kilt
+  name: Kilt
+  type: wallet
+  description: identity protocol for issuing self-sovereign, verifiable
+    credentials and decentralized identifiers
+  website: https://www.kilt.io/
+  github: https://github.com/KILTprotocol/sdk-js
+  twitter: https://twitter.com/Kiltprotocol
+  metrics:
+    stars: 77
+    twitter_followers: 69699
+  tags:
+    - privacy
+    - oracle
+    - data
+    - wallet
+    - polkadot
+  relationships: []
+- slug: mandala-chain
+  name: Mandala Chain
+  type: wallet
+  description: Where Government & Enterprise Applications Integrate Seamlessly
+    with Public & Retail Applications.
+  website: https://www.mandalachain.io/
+  github: https://github.com/MandalaChain/Mandala-Node
+  twitter: https://twitter.com/MandalaChain
+  metrics:
+    stars: 1
+  tags:
+    - defi
+    - data
+    - evm
+    - smart-contracts
+    - wallet
+    - privacy
+    - polkadot
+  relationships: []
+- slug: math
+  name: Math
+  type: wallet
+  description: Non-custodial mobile wallet app and extension, Layer 2 blockchain
+    based on Substrate
+  website: https://mathwallet.org/en-us/
+  github: https://github.com/mathwallet/MathChain
+  twitter: https://twitter.com/MathWallet
+  metrics:
+    stars: 110
+    twitter_followers: 833909
+  tags:
+    - wallet
+    - defi
+    - nft
+    - dapp
+    - evm
+    - solana
+    - bitcoin
+    - bnb-chain
+    - near
+    - ton
+    - sui
+    - tezos
+    - moonbeam
+    - polkadot
+    - kusama
+    - cosmos
+  relationships: []
+- slug: moonbeans
+  name: Moonbeans
+  type: bridge
+  description: NFT marketplace on Moonbeam
+  website: https://moonbeans.io/
+  github: https://github.com/m00nbeans/assets
+  twitter: https://twitter.com/MoonbeansIO
+  metrics:
+    stars: 0
+    twitter_followers: 5380
+  tags:
+    - nft
+    - bridge
+    - dao
+    - marketplace
+    - evm
+    - moonbeam
+  relationships: []
+- slug: nova-wallet-spektr-vault
+  name: Nova Wallet / Spektr / Vault
+  type: wallet
+  description: non-custodial mobile wallet w crowdloans  and staking, enterprise
+    desktop wallet with multisigs, highly secure cold wallet
+  website: https://novasama.io/
+  github: https://github.com/novasamatech/nova-spektr
+  twitter: https://twitter.com/NovaWalletApp
+  metrics:
+    stars: 44
+    twitter_followers: 12153
+  tags:
+    - wallet
+    - nft
+    - dapp
+    - dao
+    - polkadot
+    - kusama
+    - aleph-zero
+    - moonbeam
+    - astar-network
+    - acala-network
+  relationships: []
+- slug: ontology
+  name: Ontology
+  type: wallet
+  description: Decentralized Identity Framework, reputation and metadata protocol, wallet
+  website: https://ont.io/
+  github: https://github.com/ontio/ontology
+  twitter: https://twitter.com/OntologyNetwork
+  metrics:
+    stars: 835
+    twitter_followers: 223689
+  tags:
+    - wallet
+    - data
+    - privacy
+    - evm
+    - aave
+    - ethereum
+    - bnb-chain
+    - near
+    - polkadot
+  relationships: []
+- slug: opensquare
+  name: Opensquare
+  type: infrastructure
+  description: Governance platforms, explorers, QA and bounty platforms.
+    dotTreasury - platform that aggregates treasury data
+  website: https://www.opensquare.network/
+  github: https://github.com/opensquare-network/dotreasury
+  twitter: https://twitter.com/OpensquareN
+  metrics:
+    stars: 16
+    twitter_followers: 1252
+  tags:
+    - data
+    - dao
+    - social
+    - privacy
+    - infra
+    - indexer
+    - analytics
+    - polkadot
+    - kusama
+  relationships: []
+- slug: parachainsinfo
+  name: Parachains.info
+  type: infrastructure
+  description: blockchain explorer
+  website: https://parachains.info/
+  twitter: https://twitter.com/parachains
+  metrics:
+    twitter_followers: 3715
+  tags:
+    - indexer
+    - analytics
+    - polkadot
+    - kusama
+  relationships: []
+- slug: paralink-network
+  name: Paralink Network
+  type: infrastructure
+  description: Oracle, query tool for smart contracts
+  website: https://paralink.network
+  twitter: https://twitter.com/ParalinkNetwork
+  metrics:
+    stars: 4
+    twitter_followers: 31500
+  tags:
+    - oracle
+    - smart-contracts
+    - polkadot
+  relationships: []
+- slug: parallel-finance-heiko
+  name: Parallel Finance / Heiko
+  type: wallet
+  description: decentralized lending, staking, and borrowing protocol, wallet, DAO
+    wallet (https://parax.ai/Products/Polkadot)
+  website: https://parallel.fi
+  github: https://github.com/parallel-finance/parallel
+  twitter: https://twitter.com/ParallelFi
+  metrics:
+    stars: 124
+    twitter_followers: 91471
+  tags:
+    - defi
+    - wallet
+    - dao
+    - dapp
+    - nft
+    - evm
+    - indexer
+    - polkadot
+    - kusama
+    - ethereum
+  relationships: []
+- slug: patract-labs
+  name: Patract Labs
+  type: infrastructure
+  description: Wasm smart contract development tools
+  website: https://www.patract.io/
+  twitter: https://twitter.com/PatractLabs
+  metrics:
+    stars: 75
+    twitter_followers: 4176
+  tags:
+    - smart-contracts
+    - polkadot
+  relationships: []
+- slug: polkacube
+  name: PolkaCube
+  type: infrastructure
+  description: comprehensive on-chain key staking statistics monitoring, optimized
+    staking strategy guidance
+  website: https://polkacube.hashquark.io
+  metrics: {}
+  tags:
+    - indexer
+    - validator-provider
+  relationships: []
+- slug: polkadotjs-extension-apps
+  name: PolkadotJS extension / Apps
+  type: infrastructure
+  description: browser extension for managing Polkadot and Substrate network accounts
+  website: https://github.com/polkadot-js
+  github: https://github.com/polkadot-js/apps
+  metrics:
+    stars: 1793
+  tags:
+    - infra
+    - polkadot
+    - kusama
+    - acala-network
+    - astar-network
+  relationships: []
+- slug: polkadot-vault-parity-signer
+  name: Polkadot Vault / Parity Signer
+  type: wallet
+  description: non-custodial cold secure mobile wallet
+  website: https://vault.novasama.io/
+  github: https://github.com/novasamatech/parity-signer
+  metrics:
+    stars: 578
+  tags:
+    - wallet
+  relationships: []
+- slug: polkagate
+  name: Polkagate
+  type: wallet
+  description: Non-custodial browser extension wallet
+  website: https://polkagate.xyz/
+  github: https://github.com/PolkaGate/extension
+  twitter: https://twitter.com/PolkaGate
+  metrics:
+    stars: 2
+    twitter_followers: 471
+  tags:
+    - wallet
+    - polkadot
+    - kusama
+  relationships: []
+- slug: polkaholic
+  name: Polkaholic
+  type: infrastructure
+  description: multichain indexer of Polkadot + Kusama ecosystems
+  website: https://polkaholic.io/
+  metrics:
+    stars: 25
+  tags:
+    - indexer
+    - api
+  relationships: []
+- slug: polkalytics
+  name: Polkalytics
+  type: infrastructure
+  description: Google-Scale Analytics Service for Polkadot
+  website: https://polkalytics.io
+  github: https://github.com/Polkalytics/Polkadot-Data-Ecosystem
+  twitter: https://twitter.com/Polkalytics
+  metrics:
+    stars: 1
+    twitter_followers: 487
+  tags:
+    - analytics
+    - polkadot
+    - kusama
+  relationships: []
+- slug: polkaproject-kusamaproject
+  name: Polkaproject / Kusamaproject
+  type: infrastructure
+  description: ecosystem projects database
+  website: https://polkaproject.com/
+  twitter: https://twitter.com/polkaprojectcom
+  metrics:
+    twitter_followers: 72850
+  tags:
+    - aggregator
+    - polkadot
+    - kusama
+  relationships: []
+- slug: polkasafe
+  name: Polkasafe
+  type: wallet
+  description: asset management & multisig tool
+  website: https://polkasafe.xyz
+  github: https://github.com/polkasafe/polkasafe-sdk
+  metrics:
+    stars: 3
+  tags:
+    - wallet
+    - polkadot
+    - kusama
+    - aleph-zero
+    - astar-network
+  relationships: []
+- slug: polkascan
+  name: Polkascan
+  type: infrastructure
+  description: blockchain explorer
+  website: https://explorer.polkascan.io/
+  twitter: https://twitter.com/polkascan
+  metrics:
+    stars: 171
+    twitter_followers: 2466
+  tags:
+    - indexer
+  relationships: []
+- slug: polkassembly
+  name: Polkassembly
+  type: infrastructure
+  description: governance platform for substrate blockchains
+  website: https://polkadot.polkassembly.io/
+  github: https://github.com/polkassembly/polkassembly
+  twitter: https://twitter.com/polkassembly
+  metrics:
+    stars: 45
+    twitter_followers: 219
+  tags:
+    - dao
+    - social
+    - polkadot
+    - kusama
+    - astar-network
+    - moonbeam
+    - acala-network
+  relationships: []
+- slug: polkastats
+  name: Polkastats
+  type: infrastructure
+  description: Polkadot live stats/block explorer
+  website: https://polkastats.io/
+  github: https://github.com/polkastats/polkastats
+  twitter: https://twitter.com/PolkaStats
+  metrics:
+    stars: 24
+    twitter_followers: 12784
+  tags:
+    - indexer
+    - polkadot
+  relationships: []
+- slug: polkaview
+  name: Polkaview
+  type: infrastructure
+  description: live, low-latency, metrics & historical charts across multiple
+    Polkadot-based chains
+  website: https://polkaview.io/
+  twitter: https://twitter.com/PolkaViewIO
+  metrics:
+    twitter_followers: 107
+  tags:
+    - indexer
+    - analytics
+  relationships: []
+- slug: polkawallet
+  name: Polkawallet
+  type: wallet
+  description: Non-custodial mobile wallet app
+  website: https://polkawallet.io
+  github: https://github.com/polkawallet-io/app
+  twitter: https://twitter.com/polkawallet
+  metrics:
+    stars: 158
+    twitter_followers: 11289
+  tags:
+    - wallet
+    - polkadot
+    - kusama
+    - acala-network
+    - astar-network
+    - moonbeam
+  relationships: []
+- slug: polymesh
+  name: Polymesh
+  type: wallet
+  description: institutional–grade permissioned blockchain built specifically for
+    regulated assets
+  website: https://polymesh.network
+  github: https://github.com/PolymeshAssociation/Polymesh
+  twitter: https://twitter.com/PolymeshNetwork
+  metrics:
+    stars: 167
+    twitter_followers: 10408
+  tags:
+    - defi
+    - wallet
+  relationships: []
+- slug: public-pressure
+  name: Public Pressure
+  type: infrastructure
+  description: Web3 music marketplace
+  website: https://publicpressure.io/
+  twitter: https://twitter.com/jointhepressure
+  metrics:
+    twitter_followers: 7274
+  tags:
+    - marketplace
+    - polkadot
+    - moonbeam
+  relationships: []
+- slug: regionx
+  name: RegionX
+  type: infrastructure
+  description: Secondary Coretime Marketplace
+  website: https://www.regionx.tech
+  twitter: https://twitter.com/RegionXLabs
+  metrics: {}
+  tags:
+    - marketplace
+    - infra
+    - kusama
+    - polkadot
+  relationships: []
+- slug: sora
+  name: SORA
+  type: wallet
+  description: level-1 blockchain for Defi with bridges, swap and wallet
+  website: https://sora.org/
+  github: https://github.com/sora-xor/sora2-network
+  twitter: https://twitter.com/sora_xor
+  metrics:
+    stars: 54
+    twitter_followers: 37180
+  tags:
+    - defi
+    - wallet
+    - bridge
+    - game
+    - polkadot
+    - kusama
+  relationships: []
+- slug: snowbridge
+  name: Snowbridge
+  type: bridge
+  description: bridge between Polkadot eco and Ethereum
+  website: https://app.snowbridge.network
+  github: https://github.com/Snowfork/snowbridge
+  twitter: https://twitter.com/snowfork_inc
+  metrics:
+    stars: 301
+    twitter_followers: 3169
+  tags:
+    - bridge
+    - polkadot
+    - ethereum
+  relationships: []
+- slug: standard-unorthodox
+  name: Standard / Unorthodox
+  type: wallet
+  description: all-in-one DeFi app offering trading
+  website: https://www.standardweb3.com/
+  github: https://github.com/standardweb3/standard-substrate
+  twitter: https://twitter.com/standardweb3
+  metrics:
+    stars: 15
+    twitter_followers: 65800
+  tags:
+    - wallet
+    - exchange
+    - defi
+    - dapp
+    - polygon
+    - polkadot
+    - ethereum
+    - cosmos
+    - near
+  relationships: []
+- slug: stylo
+  name: Stylo
+  type: wallet
+  description: non-custodial cold offline mobile wallet for Polkadot, Kusama and
+    Substrate based chains or Ethereum
+  website: https://stylo-app.com/
+  github: https://github.com/stylo-app/stylo
+  twitter: https://twitter.com/app_stylo
+  metrics:
+    stars: 42
+    twitter_followers: 163
+  tags:
+    - wallet
+    - dapp
+    - evm
+    - polkadot
+    - kusama
+  relationships: []
+- slug: subdao
+  name: SubDAO
+  type: wallet
+  description: DAO infrastructure protocol that helps manage digital assets
+    through middleware, multi-sig and other decentralized features
+  website: https://www.subdao.network/
+  github: https://github.com/SubDAO-Network/dapp
+  twitter: https://twitter.com/subdao_network
+  metrics:
+    stars: 0
+    twitter_followers: 74394
+  tags:
+    - wallet
+    - dao
+    - evm
+    - polygon
+    - bnb-chain
+    - moonbeam
+    - ethereum
+  relationships: []
+- slug: subidentity
+  name: SubIdentity
+  type: infrastructure
+  description: Identity directory web app and code
+  website: https://github.com/TDSoftware/subidentity-webapp
+  metrics:
+    stars: 2
+  tags:
+    - infra
+  relationships: []
+- slug: subquery
+  name: SubQuery
+  type: infrastructure
+  description: data indexing framework, API
+  website: https://subquery.network
+  github: https://github.com/subquery/subql
+  twitter: https://twitter.com/SubQueryNetwork
+  metrics:
+    stars: 18918
+    twitter_followers: 55422
+  tags:
+    - indexer
+    - infra
+    - api
+    - analytics
+    - evm
+    - polkadot
+    - cosmos
+    - near
+    - astar-network
+    - avalanche
+    - bnb-chain
+    - ethereum
+    - polygon
+    - kusama
+    - moonbeam
+  relationships: []
+- slug: subscan
+  name: Subscan
+  type: infrastructure
+  description: blockchain explorer, API
+  website: http://subscan.io
+  github: https://github.com/subscan-explorer/subscan-essentials
+  twitter: https://twitter.com/subscan_io
+  metrics:
+    stars: 204
+    twitter_followers: 15406
+  tags:
+    - infra
+    - indexer
+    - evm
+    - api
+    - polkadot
+    - kusama
+    - aleph-zero
+    - astar-network
+    - moonbeam
+    - acala-network
+  relationships: []
+- slug: subsquid
+  name: Subsquid
+  type: infrastructure
+  description: API framework,datalake, supercharging dApps across 100+ chains
+  website: https://subsquid.io
+  github: https://github.com/subsquid/squid-sdk
+  twitter: https://twitter.com/subsquid
+  metrics:
+    stars: 1261
+    twitter_followers: 40506
+  tags:
+    - infra
+    - api
+    - indexer
+    - polygon
+    - solana
+    - polkadot
+    - kusama
+    - ethereum
+    - bnb-chain
+    - moonbeam
+  relationships: []
+- slug: subwallet
+  name: Subwallet
+  type: wallet
+  description: Non-custodial mobile wallet app w desktop extension
+  website: https://subwallet.app
+  github: https://github.com/Koniverse/SubWallet-Extension
+  twitter: https://twitter.com/subwalletapp
+  metrics:
+    stars: 99
+    twitter_followers: 30937
+  tags:
+    - wallet
+    - privacy
+    - nft
+    - polkadot
+    - kusama
+    - astar-network
+    - moonbeam
+    - acala-network
+  relationships: []
+- slug: talisman
+  name: Talisman
+  type: wallet
+  description: multi-chain mobile wallet and extension
+  website: https://talisman.xyz/
+  github: https://github.com/TalismanSociety/talisman
+  twitter: https://twitter.com/wearetalisman
+  metrics:
+    stars: 63
+    twitter_followers: 16131
+  tags:
+    - wallet
+    - nft
+    - evm
+    - privacy
+    - polkadot
+    - kusama
+    - aleph-zero
+    - astar-network
+    - moonbeam
+    - acala-network
+    - ethereum
+    - polygon
+    - bnb-chain
+  relationships: []
+- slug: ternoa
+  name: Ternoa
+  type: wallet
+  description: A scalable layer 1 appchain, focused on composable NFTs
+  website: https://www.ternoa.network/
+  github: https://github.com/capsule-corp-ternoa/ternoa-node
+  twitter: https://twitter.com/Ternoa_
+  metrics:
+    stars: 61
+    twitter_followers: 141638
+  tags:
+    - nft
+    - privacy
+    - wallet
+    - polkadot
+    - ethereum
+  relationships: []
+- slug: trustbase
+  name: Trustbase
+  type: infrastructure
+  description: Polkadot Parachain Based on Independent Smart Contract Language
+  website: https://trustbase.network/
+  twitter: https://twitter.com/TrustBase_Net
+  metrics:
+    twitter_followers: 8867
+  tags: []
+  relationships: []
+- slug: velocity-labs
+  name: Velocity Labs
+  type: infrastructure
+  description: A cross-functional team of Polkadot veterans and DeFi experts
+    commited to buildingcritical market infrastructure and tooling to unlock
+    Polkadot's full potential.
+  website: https://www.velocitylabs.org
+  github: https://github.com/velocitylabs-org/turtle
+  twitter: https://twitter.com/v_labs
+  metrics:
+    stars: 11
+  tags:
+    - infra
+    - kusama
+    - polkadot
+  relationships: []
+- slug: yieldscan
+  name: Yieldscan
+  type: infrastructure
+  description: a portfolio management platform for NPoS (nominated proof-of-stake)
+    networks like Kusama and Polkadot.
+  website: https://yieldscan.app/
+  twitter: https://twitter.com/YieldScan
+  metrics:
+    twitter_followers: 1130
+  tags:
+    - indexer
+    - polkadot
+    - kusama
+  relationships: []

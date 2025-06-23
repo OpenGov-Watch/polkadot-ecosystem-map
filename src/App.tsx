@@ -7,7 +7,7 @@ import GraphView from './components/GraphView';
 import Navigation from './components/Navigation';
 import LoadingSpinner from './components/LoadingSpinner';
 import ErrorBoundary from './components/ErrorBoundary';
-import { loadAndValidateData } from './services/dataService';
+import { loadEcosystemData } from './services/dataService';
 import { loadRenderConfig } from './services/configService';
 import { EcosystemData, RenderConfig } from './types/types';
 import './App.css';
@@ -24,7 +24,7 @@ function App() {
         setLoading(true);
         
         // Load and validate data
-        const ecosystemData = await loadAndValidateData();
+        const ecosystemData = await loadEcosystemData();
         setData(ecosystemData);
         
         // Load render configuration

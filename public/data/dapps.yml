@@ -1,87 +1,1412 @@
-- slug: "stellaswap"
-  name: "StellaSwap"
-  type: "dapp"
-  description: "Multi-featured DEX on Moonbeam with yield farming and NFT features"
-  website: "https://stellaswap.com"
-  github: "https://github.com/stellaswap"
-  twitter: "https://twitter.com/StellaSwap"
+- slug: acala-karura
+  name: Acala / Karura
+  type: defi
+  description: DeFi platform that offers a suite of financial products and
+    services, including lending, borrowing, staking, and trading, in a secure
+    and scalable way. Acala is also Ethereum-compatible, making it easy for
+    developers to bring their existing applications to the Polkadot ecosystem.
+  website: https://acala.network/
+  github: https://github.com/AcalaNetwork/Acala
+  twitter: https://twitter.com/AcalaNetwork
   metrics:
-    stars: 67
-    forks: 23
-    contributors: 12
-    tvl: 15000000
-    tx_count: 2300000
+    stars: 755
+    twitter_followers: 260292
   tags:
-    - "dex"
-    - "yield-farming"
-    - "moonbeam"
-  relationships:
-    - target: "moonbeam"
-      type: "builds-on"
-      weight: 10
-    - target: "metamask"
-      type: "integrates"
-      weight: 8
-
-- slug: "beamswap"
-  name: "BeamSwap"
-  type: "dapp"
-  description: "Decentralized exchange on Moonbeam"
-  website: "https://beamswap.io"
-  twitter: "https://twitter.com/BeamSwap"
+    - defi
+    - polkadot
+    - acala-network
+  relationships: []
+- slug: ajunabajun
+  name: Ajuna/Bajun
+  type: dapp
+  description: hosting and support for Unity games
+  website: https://ajuna.io/baju/
+  github: https://github.com/ajuna-network/Ajuna
+  twitter: https://twitter.com/AjunaNetwork
   metrics:
-    stars: 34
-    forks: 15
-    contributors: 8
-    tvl: 8500000
-    tx_count: 1200000
+    stars: 25
+    twitter_followers: 21256
   tags:
-    - "dex"
-    - "moonbeam"
-    - "amm"
-  relationships:
-    - target: "moonbeam"
-      type: "builds-on"
-      weight: 10
-    - target: "stellaswap"
-      type: "competes"
-      weight: 7
-
-- slug: "arthswap"
-  name: "ArthSwap"
-  type: "dapp"
-  description: "One-stop DeFi protocol on Astar Network"
-  website: "https://arthswap.org"
-  twitter: "https://twitter.com/ArthSwap"
+    - game
+    - nft
+    - polkadot
+    - kusama
+  relationships: []
+- slug: algem
+  name: Algem
+  type: defi
+  description: liquid staking DeFi dApp on top of Astar Network
+  website: https://www.algem.io/
+  github: https://github.com/AlgemDeFi/algem-contracts
+  twitter: https://twitter.com/Algem_io
   metrics:
-    stars: 23
-    forks: 9
-    contributors: 6
-    tvl: 4200000
-    tx_count: 567000
+    stars: 1
+    twitter_followers: 8612
   tags:
-    - "dex"
-    - "astar"
-    - "defi"
-  relationships:
-    - target: "astar"
-      type: "builds-on"
-      weight: 10
-
-- slug: "metamask"
-  name: "MetaMask"
-  type: "wallet"
-  description: "Popular Ethereum wallet with Polkadot EVM chains support"
-  website: "https://metamask.io"
-  github: "https://github.com/MetaMask"
-  twitter: "https://twitter.com/MetaMask"
+    - defi
+    - dapp
+    - astar-network
+  relationships: []
+- slug: arthswap
+  name: Arthswap
+  type: defi
+  description: Defi services like swap, pools, staking on Astar
+  website: https://www.arthswap.org
+  github: https://github.com/ArthSwap/arthswap-core
+  twitter: https://twitter.com/arthswap
   metrics:
-    stars: 11234
-    forks: 4567
-    contributors: 234
+    stars: 10
+    twitter_followers: 96638
   tags:
-    - "wallet"
-    - "ethereum"
-    - "browser"
-    - "mobile"
+    - defi
+    - astar-network
+  relationships: []
+- slug: ava-protocol-oak-turing
+  name: Ava Protocol / OAK / Turing
+  type: defi
+  description: payment automation - event-driven smart contract VM, autonomous
+    transactions, and on-chain scheduler
+  website: https://avaprotocol.org/
+  github: https://github.com/AvaProtocol/OAK-blockchain
+  twitter: https://twitter.com/ava_protocol
+  metrics:
+    stars: 113
+    twitter_followers: 30035
+  tags:
+    - defi
+    - smart-contracts
+    - evm
+    - marketplace
+    - dapp
+    - polkadot
+    - kusama
+  relationships: []
+- slug: aventus
+  name: Aventus
+  type: defi
+  description: STurnkey protocol solution for enterprises
+  website: https://aventus.io/
+  github: https://github.com/AventusProtocolFoundation/avn-parachain
+  twitter: https://twitter.com/AventusNetwork
+  metrics:
+    stars: 8
+    twitter_followers: 19936
+  tags:
+    - validator-provider
+    - defi
+    - api
+    - indexer
+    - evm
+    - smart-contracts
+    - polkadot
+  relationships: []
+- slug: bandot
+  name: BanDot
+  type: defi
+  description: Cross-chain smart token swap, unsecured credit lending, liquidity pool
+  website: https://github.com/bandotio
+  github: https://github.com/bandotio/GameLand
+  twitter: https://twitter.com/hellobandot
+  metrics:
+    stars: 26
+    twitter_followers: 10526
+  tags:
+    - defi
+  relationships: []
+- slug: beamswap
+  name: Beamswap
+  type: defi
+  description: Decentralized exchange (DEX) with an automated market maker (AMM),
+    providing liquidity and peer-to-peer transactions, built on the Moonbeam
+    network.
+  website: https://beamswap.io/
+  github: https://github.com/BeamSwap/beamswap-tokenlist
+  twitter: https://twitter.com/Beamswapio
+  metrics:
+    stars: 3
+    twitter_followers: 65743
+  tags:
+    - defi
+    - exchange
+    - evm
+    - bridge
+    - analytics
+    - moonbeam
+  relationships: []
+- slug: beatport
+  name: Beatport
+  type: nft
+  description: marketplace exploring the future of electronic music built on
+    Polkadot’s parachain Aventus, an enterprise-grade blockchain which is a
+    layer 1 (parachain) on Polkadot.
+  website: https://beatport.io/
+  twitter: https://twitter.com/btprtio
+  metrics:
+    twitter_followers: 1078
+  tags:
+    - marketplace
+    - nft
+    - social
+    - polkadot
+  relationships: []
+- slug: bifrost
+  name: Bifrost
+  type: defi
+  description: derivatives protocol that provides cross-chain liquidity for staked assets
+  website: https://bifrost.finance/
+  github: https://github.com/bifrost-io/bifrost
+  twitter: https://twitter.com/BifrostFinance
+  metrics:
+    stars: 440
+    twitter_followers: 83870
+  tags:
+    - defi
+    - smart-contracts
+    - polkadot
+    - kusama
+    - ethereum
+  relationships: []
+- slug: bitcountry-pioneer-mnet
+  name: Bit.Country / Pioneer / MNet
+  type: dapp
+  description: Bit.Country enables users to launch their own metaverses for their
+    community. Metaverse.Network enables developers to launch
+    Ethereum-compatible smart contracts.
+  website: https://bit.country/
+  github: https://github.com/bit-country/Metaverse-Network
+  twitter: https://twitter.com/BitDotCountry
+  metrics:
+    stars: 171
+    twitter_followers: 135818
+  tags:
+    - nft
+    - game
+    - polkadot
+  relationships: []
+- slug: bluefin-ex-firefly
+  name: Bluefin (ex-Firefly)
+  type: defi
+  description: orderbook-based derivatives exchange
+  website: https://bluefin.io/
+  github: https://github.com/fireflyprotocol/bluefin-v2-client-ts
+  twitter: https://twitter.com/bluefinapp
+  metrics:
+    stars: 10
+    twitter_followers: 79307
+  tags:
+    - exchange
+    - sui
+  relationships: []
+- slug: bluez
+  name: Bluez
+  type: nft
+  description: The community driven NFT marketplace for Astar Network
+  website: https://bluez.app/
+  twitter: https://twitter.com/BluezNFT
+  metrics:
+    twitter_followers: 1059
+  tags:
+    - nft
+    - marketplace
+    - api
+    - astar-network
+  relationships: []
+- slug: centrifuge-altair
+  name: Centrifuge / Altair
+  type: defi
+  description: DeFi protocol and marketplace for real-world asset pools
+  website: https://centrifuge.io/
+  github: https://github.com/centrifuge/apps
+  twitter: https://twitter.com/centrifuge
+  metrics:
+    stars: 30
+    twitter_followers: 64766
+  tags:
+    - defi
+    - marketplace
+    - polkadot
+  relationships: []
+- slug: chainxsherpax
+  name: ChainX/SherpaX
+  type: defi
+  description: a trusted and scalable BTC Layer2 Network
+  website: https://chainx.org
+  github: https://github.com/chainx-org/ChainX
+  twitter: https://twitter.com/chainx_org
+  metrics:
+    stars: 328
+    twitter_followers: 96457
+  tags:
+    - defi
+    - smart-contracts
+    - bitcoin
+  relationships: []
+- slug: chainflip-labs
+  name: Chainflip Labs
+  type: defi
+  description: protocol for cross chain swaps, DEX
+  website: https://chainflip.io/
+  github: https://github.com/chainflip-io/chainflip-backend
+  twitter: https://twitter.com/Chainflip
+  metrics:
+    stars: 62
+    twitter_followers: 62751
+  tags:
+    - defi
+    - exchange
+    - polkadot
+    - ethereum
+    - bitcoin
+  relationships: []
+- slug: claynosaurz
+  name: Claynosaurz
+  type: dapp
+  description: Game, short videos, collectibles
+  website: https://claynosaurz.com/
+  twitter: https://twitter.com/Claynosaurz
+  metrics:
+    twitter_followers: 68836
+  tags:
+    - nft
+    - game
+    - solana
+  relationships: []
+- slug: codadot
+  name: CodaDot
+  type: nft
+  description: NFT marketplace
+  website: https://kodadot.xyz/
+  github: https://github.com/kodadot/nft-gallery
+  twitter: https://twitter.com/KodaDot
+  metrics:
+    stars: 676
+    twitter_followers: 14777
+  tags:
+    - nft
+    - marketplace
+    - polkadot
+    - kusama
+  relationships: []
+- slug: coinversation
+  name: Coinversation
+  type: defi
+  description: synthetic asset issuance protocol and decentralised contract trading exchange
+  website: https://www.coinversation.io/
+  twitter: https://twitter.com/Coinversation_
+  metrics:
+    stars: 5
+    twitter_followers: 27724
+  tags:
+    - exchange
+    - defi
+    - nft
+  relationships: []
+- slug: composable-finance-picasso
+  name: Composable Finance / Picasso
+  type: defi
+  description: Bridges for DeFi
+  website: http://composable.finance
+  github: https://github.com/ComposableFi/composable
+  twitter: https://twitter.com/ComposableFin
+  metrics:
+    stars: 132
+    twitter_followers: 32555
+  tags:
+    - bridge
+    - defi
+    - polkadot
+    - kusama
+    - ethereum
+    - cosmos
+    - solana
+    - near
+    - astar-network
+    - moonbeam
+  relationships: []
+- slug: cosmize
+  name: Cosmize
+  type: dapp
+  description: |-
+    virtual social platform developed on 
+    Astar Network, metaverse
+  website: https://www.cosmize.io/
+  twitter: https://twitter.com/cosmize_io
+  metrics:
+    twitter_followers: 12477
+  tags:
+    - evm
+    - nft
+    - game
+    - social
+    - dapp
+    - astar-network
+  relationships: []
+- slug: crust-network-crust-shadow
+  name: Crust Network / Crust shadow
+  type: dapp
+  description: decentralized cloud storage provider - dapp hosting, nft storage,
+    ipfs storage
+  website: https://crust.network/
+  github: https://github.com/crustio/crust
+  twitter: https://twitter.com/CrustNetwork
+  metrics:
+    stars: 526
+    twitter_followers: 109980
+  tags:
+    - nft
+    - dapp
+    - evm
+    - data
+    - polkadot
+  relationships: []
+- slug: dico-kico
+  name: DICO / KICO
+  type: defi
+  description: DAO + ICO + Swap. DICO is positioned as a parachain of
+    decentralized ICO+ exchange
+  website: https://github.com/DICO-TEAM/dico-chain
+  github: https://github.com/DICO-TEAM/dico-chain
+  twitter: https://twitter.com/DICONetwork
+  metrics:
+    stars: 17
+    twitter_followers: 632
+  tags:
+    - dao
+    - defi
+    - polkadot
+  relationships: []
+- slug: darwinia-network-crab
+  name: Darwinia Network / Crab
+  type: dapp
+  description: community-managed technology and service provider, concentrating on
+    powering the cross-chain functionalities of decentralized apps
+  website: https://darwinia.network/
+  github: https://github.com/darwinia-network/darwinia
+  twitter: https://twitter.com/DarwiniaNetwork
+  metrics:
+    stars: 250
+    twitter_followers: 67540
+  tags:
+    - evm
+    - dapp
+    - polkadot
+    - kusama
+    - ethereum
+  relationships: []
+- slug: data-highway-tanganika
+  name: Data highway / Tanganika
+  type: nft
+  description: a decentralized Web3 organization specializing in the gathering and
+    trading of Internet of Things (IoT) Data NFTs and F-NFTs. DataHighway is
+    currently building an Inter-Chain Data Marketplace
+  website: https://www.datahighway.com/
+  github: https://github.com/DataHighway-DHX/node
+  twitter: https://twitter.com/DataHighway_DHX
+  metrics:
+    stars: 52
+    twitter_followers: 6074
+  tags:
+    - oracle
+    - nft
+    - marketplace
+    - data
+    - arweave
+  relationships: []
+- slug: diora-network
+  name: Diora Network
+  type: defi
+  description: Fully EVM compatible parachain built with Substrate for Polkadot and Kusama
+  website: https://diora.network/
+  github: https://github.com/Diora-Network/Diora
+  twitter: https://twitter.com/DioraNetwork
+  metrics:
+    stars: 7
+    twitter_followers: 188
+  tags:
+    - evm
+    - defi
+    - polkadot
+  relationships: []
+- slug: equilibrium-genshiro
+  name: Equilibrium / Genshiro
+  type: defi
+  description: lending platform and a cross-chain DEX
+  website: https://equilibrium.io/
+  github: https://github.com/equilibrium-eosdt/equilibrium-substrate-chain
+  twitter: https://twitter.com/EquilibriumDeFi
+  metrics:
+    stars: 12
+    twitter_followers: 60146
+  tags:
+    - defi
+    - exchange
+    - polkadot
+  relationships: []
+- slug: evelonapp
+  name: Evelon.App
+  type: nft
+  description: no code platform that allows you to create and deploy dynamic NFTs with ease
+  website: https://www.evelon.app/
+  twitter: https://twitter.com/EvelonApp
+  metrics:
+    twitter_followers: 5951
+  tags:
+    - nft
+    - smart-contracts
+    - evm
+    - marketplace
+    - ethereum
+    - moonbeam
+  relationships: []
+- slug: evrloot
+  name: Evrloot
+  type: dapp
+  description: Game (dark fantasy, storytelling)
+  website: https://evrloot.io/
+  twitter: https://twitter.com/EVRL00T
+  metrics:
+    twitter_followers: 1755
+  tags:
+    - game
+    - polkadot
+    - moonbeam
+  relationships: []
+- slug: exiled-racers
+  name: Exiled racers
+  type: dapp
+  description: Game (predictions, racing)
+  website: https://www.exiledracers.com/
+  twitter: https://twitter.com/exiledracers
+  metrics:
+    twitter_followers: 6034
+  tags:
+    - game
+    - moonbeam
+  relationships: []
+- slug: firebird-ex-polkafoundry
+  name: Firebird (ex-polkafoundry)
+  type: defi
+  description: launchpad that allows investors to participate in token pre-sales
+    of carefully-chosen Web3 projects
+  website: https://redkitepad.com/#/
+  twitter: https://twitter.com/redkitepad
+  metrics:
+    twitter_followers: 467039
+  tags:
+    - defi
+    - evm
+    - marketplace
+    - dapp
+    - polygon
+    - ethereum
+    - avalanche
+    - bnb-chain
+  relationships: []
+- slug: gasp-mangata-x
+  name: GASP (Mangata X)
+  type: defi
+  description: The infrastructure enabling native swaps between Ethereum and other
+    blockchains using multi-chain ZK rollup technology
+  website: https://www.mangata.finance/
+  twitter: https://twitter.com/Gasp_xyz
+  metrics:
+    stars: 65
+    twitter_followers: 23204
+  tags:
+    - exchange
+    - evm
+    - defi
+    - polygon
+    - ethereum
+  relationships: []
+- slug: gafi-network
+  name: Gafi Network
+  type: dapp
+  description: Blockchain gaming platform
+  website: https://gafi.network/
+  twitter: https://twitter.com/GafiNetwork
+  metrics:
+    stars: 5
+    twitter_followers: 240
+  tags:
+    - evm
+    - game
+    - nft
+    - polkadot
+  relationships: []
+- slug: gamedao
+  name: GameDAO
+  type: defi
+  description: enables the gaming community to collaborate, fund and own high quality games
+  website: https://gamedao.co/
+  twitter: https://twitter.com/gameDAOco
+  metrics:
+    stars: 13
+    twitter_followers: 5094
+  tags:
+    - game
+    - defi
+    - dao
+    - nft
+    - acala-network
+  relationships: []
+- slug: hashed-network
+  name: Hashed Network
+  type: dapp
+  description: Platform for business use cases like tax credit marketplace, multisigs etc
+  website: https://hashed.network/
+  github: https://github.com/hashed-io/hashed-substrate
+  twitter: https://twitter.com/HashedNetwork
+  metrics:
+    stars: 10
+    twitter_followers: 879
+  tags:
+    - dapp
+    - smart-contracts
+    - privacy
+    - polkadot
+  relationships: []
+- slug: heal3
+  name: Heal3
+  type: dapp
+  description: web3 MovetoEarn app with Game-Fi elements on AstarNetwork
+  website: https://heal3.com/
+  twitter: https://twitter.com/Heal3official
+  metrics:
+    twitter_followers: 7924
+  tags:
+    - game
+    - evm
+    - astar-network
+  relationships: []
+- slug: hydration
+  name: Hydration
+  type: defi
+  description: liquidity protocol, trading
+  website: https://hydration.net
+  github: https://github.com/galacticcouncil/hydration-node
+  twitter: https://twitter.com/hydration_net
+  metrics:
+    stars: 182
+    twitter_followers: 30116
+  tags:
+    - defi
+    - exchange
+    - polkadot
+    - kusama
+  relationships: []
+- slug: interlay-kintsugi
+  name: Interlay / Kintsugi
+  type: defi
+  description: Bitcoin DeFi Protocol. A Bitcoin-backed asset, fully
+    collateralized, interoperable, and censorship-resistant
+  website: https://interlay.io
+  github: https://github.com/interlay/interbtc
+  twitter: https://twitter.com/InterlayHQ
+  metrics:
+    stars: 250
+    twitter_followers: 25877
+  tags:
+    - defi
+    - polkadot
+    - kusama
+    - bitcoin
+  relationships: []
+- slug: invarch-tinkernet
+  name: InvArch / Tinkernet
+  type: defi
+  description: Multichain Account abstraction hub, optimized for decentralized
+    operations & financial management spanning across every blockchain.
+  website: https://invarch.network/
+  github: https://github.com/Abstracted-Labs/InvArch
+  twitter: https://twitter.com/InvArchNetwork
+  metrics:
+    stars: 49
+    twitter_followers: 17046
+  tags:
+    - defi
+    - nft
+    - smart-contracts
+    - dao
+    - data
+    - polkadot
+    - kusama
+  relationships: []
+- slug: kagla-finance
+  name: Kagla Finance
+  type: defi
+  description: native stable swap on Astar Network. a DEX that focuses on stablecoins.
+  website: https://kagla.finance/
+  github: https://github.com/kagla-finance/kagla-api
+  twitter: https://twitter.com/kagla_fi
+  metrics:
+    stars: 2
+    twitter_followers: 65600
+  tags:
+    - defi
+    - exchange
+    - dapp
+    - astar-network
+  relationships: []
+- slug: konomi
+  name: Konomi
+  type: defi
+  description: Cross-chain Oracle Machine with P2P lending module and one-stop
+    asset management solution
+  website: https://konomi.tech/governance
+  github: https://github.com/konomi-network/konomi-node
+  twitter: https://twitter.com/KonomiNetwork
+  metrics:
+    stars: 2
+    twitter_followers: 54337
+  tags:
+    - oracle
+    - defi
+    - polkadot
+  relationships: []
+- slug: kylin-network-pichiu
+  name: Kylin Network / Pichiu
+  type: defi
+  description: infra to build multi-purpose oracles, provide valid, reliable,
+    secure, cost-effective, and easily-coordinated data sources and data
+    analytics
+  website: https://www.kylin.network/
+  github: https://github.com/Kylin-Network/kylin-collator
+  twitter: https://twitter.com/Kylin_Network
+  metrics:
+    stars: 42
+    twitter_followers: 76700
+  tags:
+    - oracle
+    - data
+    - analytics
+    - defi
+    - polkadot
+  relationships: []
+- slug: laos-network
+  name: LAOS Network
+  type: dapp
+  description: The Universal Layer-1 for Digital Assets Across All Blockchains
+  website: https://laosnetwork.io
+  github: https://github.com/freeverseio/laos
+  twitter: https://twitter.com/laosnetwork
+  metrics:
+    stars: 20
+    twitter_followers: 8649
+  tags:
+    - evm
+    - game
+    - nft
+    - polygon
+    - ethereum
+    - polkadot
+  relationships: []
+- slug: laminar
+  name: Laminar
+  type: defi
+  description: Decentralised financial protocols, oracles
+  website: https://laminar.one/
+  github: https://github.com/laminar-protocol/laminar-chain
+  twitter: https://twitter.com/LaminarProtocol
+  metrics:
+    stars: 89
+    twitter_followers: 11922
+  tags:
+    - oracle
+    - defi
+    - polkadot
+  relationships: []
+- slug: limechain-fruzhin
+  name: Limechain / Fruzhin
+  type: defi
+  description: Consulting and developing infrastructure, host implementation in Java
+  website: https://limechain.tech/
+  github: https://github.com/LimeChain/Fruzhin
+  twitter: https://twitter.com/LimeChainHQ
+  metrics:
+    stars: 35
+    twitter_followers: 3314
+  tags:
+    - defi
+    - nft
+    - dao
+    - dapp
+    - smart-contracts
+    - polkadot
+    - polygon
+    - avalanche
+    - near
+  relationships: []
+- slug: manta-network-calamari
+  name: Manta Network / Calamari
+  type: defi
+  description: privacy layer for the parachains
+  website: https://www.manta.network/
+  github: https://github.com/Manta-Network/Manta
+  twitter: https://twitter.com/MantaNetwork
+  metrics:
+    stars: 239
+    twitter_followers: 377100
+  tags:
+    - evm
+    - defi
+    - smart-contracts
+    - privacy
+    - polygon
+    - polkadot
+    - kusama
+  relationships: []
+- slug: moonsama
+  name: Moonsama
+  type: dapp
+  description: Multi-chain protocol for NFT applications
+  website: https://moonsama.com/
+  github: https://github.com/moonsama/dev-resources
+  twitter: https://twitter.com/MoonsamaNFT
+  metrics:
+    stars: 5
+    twitter_followers: 28164
+  tags:
+    - nft
+    - marketplace
+    - evm
+    - dapp
+    - moonbeam
+  relationships: []
+- slug: moonwell
+  name: Moonwell
+  type: defi
+  description: Lending, borrowing, and DeFi protocol built on Moonbeam and Moonriver
+  website: https://moonwell.fi/
+  github: https://github.com/moonwell-fi/moonwell-contracts-v2
+  twitter: https://twitter.com/MoonwellDeFi
+  metrics:
+    stars: 53
+    twitter_followers: 31829
+  tags:
+    - evm
+    - defi
+    - dapp
+    - moonbeam
+    - ethereum
+  relationships: []
+- slug: nodle
+  name: Nodle
+  type: dapp
+  description: Enabling BLE to connect IoT devices to the Internet at a low-cost
+    while maintaining privacy and security
+  website: https://www.nodle.com/
+  github: https://github.com/NodleCode/chain
+  twitter: https://twitter.com/nodlenetwork
+  metrics:
+    stars: 192
+    twitter_followers: 53100
+  tags:
+    - oracle
+    - dapp
+    - social
+    - polkadot
+  relationships: []
+- slug: orbiter-one
+  name: Orbiter One
+  type: defi
+  description: lending protocol offering incentive rewards, Cross-Chain Deposits and DAO
+  website: https://orbiter.one/
+  github: https://github.com/orbiterone/core-protocol
+  twitter: https://twitter.com/OrbiterOne
+  metrics:
+    stars: 0
+    twitter_followers: 11268
+  tags:
+    - defi
+    - dao
+    - smart-contracts
+    - evm
+    - moonbeam
+  relationships: []
+- slug: peaq
+  name: Peaq
+  type: dapp
+  description: build decentralized applications (dApps) for vehicles, robots and devices
+  website: https://www.peaq.network/
+  github: https://github.com/peaqnetwork/peaq-network-node
+  twitter: https://twitter.com/peaqnetwork
+  metrics:
+    stars: 74
+    twitter_followers: 58834
+  tags:
+    - dapp
+    - smart-contracts
+    - oracle
+    - polkadot
+  relationships: []
+- slug: pendulum-amplitude
+  name: Pendulum / Amplitude
+  type: defi
+  description: Decentralized blockchain technology for cross-border payments and
+    traditional finance infrastructure
+  website: https://pendulumchain.org/
+  github: https://github.com/pendulum-chain/pendulum
+  twitter: https://twitter.com/pendulum_chain
+  metrics:
+    stars: 43
+    twitter_followers: 53000
+  tags:
+    - defi
+    - bridge
+    - smart-contracts
+    - evm
+    - polkadot
+  relationships: []
+- slug: phala-khala
+  name: Phala / Khala
+  type: defi
+  description: computing network, off-chain computation, analytics, cloud infrastructure
+  website: https://www.phala.network/en/
+  github: https://github.com/Phala-Network/phala-blockchain
+  twitter: https://twitter.com/PhalaNetwork
+  metrics:
+    stars: 354
+    twitter_followers: 116843
+  tags:
+    - smart-contracts
+    - nft
+    - evm
+    - infra
+    - exchange
+    - polkadot
+    - kusama
+  relationships: []
+- slug: phyken-network
+  name: Phyken network
+  type: defi
+  description: Layer 1 blockchain and DeFi protocol for Green Real World Assets (GRWA)
+  website: https://phyken.network/
+  github: https://github.com/PhykenNetwork/phyken-investor-app
+  twitter: https://twitter.com/phyken_network
+  metrics:
+    stars: 0
+    twitter_followers: 862
+  tags:
+    - defi
+    - privacy
+    - polkadot
+  relationships: []
+- slug: polimec
+  name: Polimec
+  type: defi
+  description: fundraising in a decentralized, transparent, and regulatory compliant manner
+  website: https://www.polimec.org/
+  github: https://github.com/Polimec/polimec-node
+  twitter: https://twitter.com/PolimecProtocol
+  metrics:
+    stars: 20
+    twitter_followers: 15000
+  tags:
+    - defi
+    - aggregator
+    - polkadot
+  relationships: []
+- slug: polkacover
+  name: PolkaCover
+  type: defi
+  description: DeFi insurance marketplace for the global crypto ecosystem
+  website: https://www.polkacover.com/
+  metrics: {}
+  tags:
+    - defi
+    - marketplace
+    - evm
+  relationships: []
+- slug: polkaex
+  name: PolkaEx
+  type: defi
+  description: A cross-chain Dex and Launchpad on Polkadot with higher TPS and
+    lower transaction fees
+  website: https://www.polkaex.io
+  github: https://github.com/PolkaEX/PolkaEx
+  twitter: https://twitter.com/PolkaExOfficial
+  metrics:
+    stars: 1
+    twitter_followers: 21541
+  tags:
+    - exchange
+    - defi
+    - polkadot
+  relationships: []
+- slug: polkadex
+  name: Polkadex
+  type: defi
+  description: non-custodial orderbook-based cryptocurrency exchange
+  website: https://polkadex.trade/
+  github: https://github.com/Polkadex-Substrate/Polkadex
+  twitter: https://twitter.com/polkadex
+  metrics:
+    stars: 291
+    twitter_followers: 62186
+  tags:
+    - exchange
+    - defi
+    - polkadot
+  relationships: []
+- slug: polkastarter
+  name: Polkastarter
+  type: defi
+  description: fundraising platform
+  website: https://polkastarter.com
+  github: https://github.com/polkastarter/polkastarter-js
+  twitter: https://twitter.com/polkastarter
+  metrics:
+    stars: 25
+    twitter_followers: 619561
+  tags:
+    - defi
+    - ethereum
+    - polygon
+    - bnb-chain
+  relationships: []
+- slug: rebl-network
+  name: REBL Network
+  type: dapp
+  description: a hub for creators to craft, discover and monetize conten
+  website: https://rebl.ai/
+  github: https://github.com/yusernetwork/contracts
+  twitter: https://twitter.com/reblapp
+  metrics:
+    stars: 0
+    twitter_followers: 7722
+  tags:
+    - nft
+    - social
+    - dapp
+    - marketplace
+    - dao
+    - polkadot
+    - moonbeam
+  relationships: []
+- slug: rmrk-singular
+  name: RMRK / Singular
+  type: nft
+  description: protocol for multi-asset, nestable and composable NFTs for EVM and beyond
+  website: https://www.rmrk.app
+  github: https://github.com/rmrk-team/evm
+  twitter: https://twitter.com/RmrkApp
+  metrics:
+    stars: 78
+    twitter_followers: 62429
+  tags:
+    - nft
+    - marketplace
+    - evm
+    - polygon
+    - ethereum
+    - moonbeam
+    - astar-network
+  relationships: []
+- slug: raresama
+  name: Raresama
+  type: nft
+  description: The first NFT Marketplace on Polkadot and soon on zksync.
+  website: https://raresama.com/
+  github: https://github.com/moonsama/raresama-custom-collections
+  twitter: https://twitter.com/RaresamaNFT
+  metrics:
+    stars: 1
+    twitter_followers: 6453
+  tags:
+    - nft
+    - marketplace
+    - polkadot
+    - moonbeam
+  relationships: []
+- slug: reef
+  name: Reef
+  type: defi
+  description: EVM compatible blockchain for DeFi
+  website: https://reef.io/
+  github: https://github.com/reef-chain/reef-chain-node
+  twitter: https://twitter.com/Reef_Chain
+  metrics:
+    stars: 1
+    twitter_followers: 234217
+  tags:
+    - defi
+    - nft
+    - evm
+    - game
+    - smart-contracts
+    - bridge
+    - polkadot
+  relationships: []
+- slug: robonomics
+  name: Robonomics
+  type: nft
+  description: IoT platform for connecting robotics under Polkadot and Ethereum control
+  website: https://robonomics.network
+  github: https://github.com/airalab/robonomics
+  twitter: https://twitter.com/AIRA_Robonomics
+  metrics:
+    stars: 219
+    twitter_followers: 28951
+  tags:
+    - oracle
+    - infra
+    - nft
+    - smart-contracts
+    - polkadot
+  relationships: []
+- slug: sio2
+  name: SIO2
+  type: defi
+  description: Astar-native lending hub that supports both EVM and WASM
+  website: https://sio2.finance/
+  github: https://github.com/SiO2-Finance/contracts
+  twitter: https://twitter.com/SiO2_Finance
+  metrics:
+    stars: 1
+    twitter_followers: 7449
+  tags:
+    - evm
+    - defi
+    - polkadot
+    - astar-network
+  relationships: []
+- slug: shadows-network
+  name: Shadows Network
+  type: defi
+  description: a hub for issuing, trading, lending and borrowing synthetic assets
+  website: https://www.shadows.link/
+  twitter: https://twitter.com/shadows_defi
+  metrics:
+    twitter_followers: 22317
+  tags:
+    - defi
+  relationships: []
+- slug: sirius-finance
+  name: Sirius finance
+  type: defi
+  description: stablecoin AMM infrastructure on Astar Network
+  website: https://www.sirius.finance/
+  github: https://github.com/SiriusFinance/siriusfinance-contract
+  twitter: https://twitter.com/Sirius_Finance
+  metrics:
+    stars: 11
+    twitter_followers: 41526
+  tags:
+    - defi
+    - dao
+    - smart-contracts
+    - polkadot
+    - astar-network
+  relationships: []
+- slug: stafi-protocol
+  name: Stafi Protocol
+  type: defi
+  description: DeFi protocol built for staked assets
+  website: https://www.stafi.io/
+  github: https://github.com/stafiprotocol/stafi-node
+  twitter: https://twitter.com/StaFi_Protocol
+  metrics:
+    stars: 47
+    twitter_followers: 43600
+  tags:
+    - defi
+    - exchange
+    - dao
+    - ethereum
+    - cosmos
+    - polkadot
+  relationships: []
+- slug: starlay
+  name: Starlay
+  type: defi
+  description: a protocol for secure and innovative lending
+  website: https://starlay.finance/
+  github: https://github.com/starlay-finance/starlay-protocol
+  twitter: https://twitter.com/starlay_fi
+  metrics:
+    stars: 8
+    twitter_followers: 80112
+  tags:
+    - defi
+    - evm
+    - polkadot
+    - astar-network
+    - acala-network
+  relationships: []
+- slug: stellaswap
+  name: StellaSwap
+  type: defi
+  description: Swap, earn and build on Moonbeam's leading DEX
+  website: https://stellaswap.com
+  github: https://github.com/stellaswap/assets
+  twitter: https://twitter.com/StellaSwap
+  metrics:
+    stars: 1
+    twitter_followers: 34825
+  tags:
+    - defi
+    - exchange
+    - smart-contracts
+    - bridge
+    - evm
+    - nft
+    - moonbeam
+  relationships: []
+- slug: subsocial-grillchat
+  name: SubSocial / Grill.chat
+  type: defi
+  description: platform for decentralized social networks, chat,  donations
+  website: https://subsocial.network/
+  github: https://github.com/dappforce/subsocial-parachain
+  twitter: https://twitter.com/SubsocialChain
+  metrics:
+    stars: 28
+    twitter_followers: 51036
+  tags:
+    - social
+    - privacy
+    - dapp
+    - defi
+    - polkadot
+    - kusama
+  relationships: []
+- slug: subgamegamma
+  name: Subgame/Gamma
+  type: dapp
+  description: Game and Payment Module Engine Polkadot Parachain for Game Developers
+  website: https://www.subgame.org/
+  twitter: https://twitter.com/SubGame_Network
+  metrics:
+    twitter_followers: 16407
+  tags:
+    - game
+  relationships: []
+- slug: autonomys
+  name: Autonomys
+  type: nft
+  description: hyper-scalable permanent data storage, super fast data availability
+    & flexible EVM-compatible decoupled execution
+  website: https://www.autonomys.xyz
+  github: https://github.com/autonomys/subspace
+  twitter: https://twitter.com/AutonomysNet
+  metrics:
+    stars: 395
+    twitter_followers: 19869
+  tags:
+    - smart-contracts
+    - nft
+    - polkadot
+    - kusama
+  relationships: []
+- slug: taiga
+  name: Taiga
+  type: defi
+  description: synthetic asset protocol designed to unify different formats of
+    staking and crowdloan derivatives into a highly efficient standard
+  website: https://www.taigaprotocol.io/
+  github: https://github.com/nutsfinance/tapio-eth
+  twitter: https://twitter.com/TaigaProtocol
+  metrics:
+    stars: 1145
+    twitter_followers: 1455
+  tags:
+    - defi
+    - polkadot
+    - astar-network
+    - moonbeam
+  relationships: []
+- slug: the-great-escape
+  name: The Great Escape
+  type: dapp
+  description: Game - Race with your Ape to collect fruits and kill enemies
+  website: https://www.playtge.com/
+  twitter: https://twitter.com/PlayTGE
+  metrics:
+    twitter_followers: 5289
+  tags:
+    - evm
+    - game
+    - moonbeam
+  relationships: []
+- slug: thedpsproject
+  name: TheDPSproject
+  type: dapp
+  description: mobile and desktop games - Damned pirates society
+  website: https://damnedpiratessociety.io/
+  twitter: https://twitter.com/TheDPSproject
+  metrics:
+    twitter_followers: 7673
+  tags:
+    - game
+    - nft
+    - dao
+    - moonbeam
+  relationships: []
+- slug: tidal-finance
+  name: Tidal Finance
+  type: defi
+  description: insurance coverage protocol for assets across chains in  liquidity pools
+  website: https://www.tidal.finance/
+  github: https://github.com/TidalFinance/tidal-contracts
+  twitter: https://twitter.com/tidaldefi
+  metrics:
+    stars: 9
+    twitter_followers: 55500
+  tags:
+    - defi
+    - marketplace
+    - evm
+    - polkadot
+  relationships: []
+- slug: totem-kapex
+  name: Totem Kapex
+  type: defi
+  description: p2p accounting consensus protocol, book-keeping
+  website: https://totemaccounting.com/
+  github: https://github.com/totem-tech/totem-ui
+  twitter: https://twitter.com/Totem_Live_
+  metrics:
+    stars: 4
+    twitter_followers: 13077
+  tags:
+    - defi
+    - data
+    - privacy
+    - smart-contracts
+    - polkadot
+  relationships: []
+- slug: treasureland
+  name: Treasureland
+  type: nft
+  description: multi-chain NFT aggregation protocol that supports NFT mint,
+    issuance, auction, and socialization. It aims to connect NFT creators,
+    users, and consumers in a decentralized way, building the eBay of the
+    blockchain world.
+  website: https://treasureland.market/
+  metrics: {}
+  tags:
+    - nft
+    - marketplace
+    - social
+  relationships: []
+- slug: uniarts-network
+  name: Uniarts Network
+  type: nft
+  description: UniArts is a multi-network NFT ecosystem with substrate developed
+    main-net as well as EVMs based smart contracts for NFT infrastructures, it
+    also provides crowd voting incentives, DAO curation and art grant to help
+    better achieve democratization of art
+  website: https://uniarts.network/
+  twitter: https://twitter.com/UniartsNetwork
+  metrics:
+    twitter_followers: 29846
+  tags:
+    - nft
+    - evm
+  relationships: []
+- slug: unique-network-quartz
+  name: Unique network / Quartz
+  type: dapp
+  description: blockchain for marketplaces, games and dApps, NFT focused.
+    marketplace supports next-generation NFT Utility tools for creators
+  website: https://unique.network
+  github: https://github.com/UniqueNetwork/unique-chain
+  twitter: https://twitter.com/Unique_NFTchain
+  metrics:
+    stars: 125
+    twitter_followers: 35709
+  tags:
+    - nft
+    - game
+    - marketplace
+    - polkadot
+    - kusama
+  relationships: []
+- slug: unit-network
+  name: Unit Network
+  type: defi
+  description: Unit Network pioneers a new era of the token-based economy, serving
+    as both a protocol and application. It connects communities, projects,
+    businesses, real-world assets, and network states in an open financial
+    network.
+  website: https://www.unit.network/
+  twitter: https://twitter.com/theunitnetwork
+  metrics:
+    twitter_followers: 3255
+  tags:
+    - defi
+    - dao
+    - dapp
+    - exchange
+    - bridge
+    - polkadot
+  relationships: []
+- slug: vara
+  name: Vara
+  type: defi
+  description: Build, test and run your own dApps at warp speed with Web3’s
+    highest-performing layer-1 decentralized network.
+  website: https://vara.network/
+  github: https://github.com/gear-foundation/dapps
+  twitter: https://twitter.com/VaraNetwork
+  metrics:
+    stars: 30
+    twitter_followers: 66036
+  tags:
+    - defi
+    - game
+    - dao
+    - nft
+    - polkadot
+  relationships: []
+- slug: watr-protocol
+  name: WATR Protocol
+  type: defi
+  description: blockchain ecosystem for decentralized apps and digital ventures in
+    metals, energy, food and environmental products
+  website: https://www.watr.org
+  github: https://github.com/Watr-Protocol/watr
+  twitter: https://twitter.com/WatrProtocol
+  metrics:
+    stars: 6
+    twitter_followers: 843
+  tags:
+    - oracle
+    - defi
+    - smart-contracts
+    - polkadot
+  relationships: []
+- slug: yieldbay
+  name: Yieldbay
+  type: defi
+  description: Yield farming and DeFi hub
+  website: https://yieldbay.io/
+  github: https://github.com/yield-bay/bay-web
+  twitter: https://twitter.com/yield_bay
+  metrics:
+    stars: 2
+    twitter_followers: 1089
+  tags:
+    - defi
+    - aggregator
+    - polkadot
+    - kusama
+  relationships: []
+- slug: zenlink
+  name: Zenlink
+  type: defi
+  description: DEX module, protocol and app for parachains
+  website: https://zenlink.pro/en/
+  github: https://github.com/zenlinkpro/zenlink-interface
+  twitter: https://twitter.com/ZenlinkPro
+  metrics:
+    stars: 10
+    twitter_followers: 28253
+  tags:
+    - exchange
+    - dapp
+    - moonbeam
+    - astar-network
+    - polkadot
   relationships: []

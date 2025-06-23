@@ -1,0 +1,94 @@
+# Enhanced Render Configuration for Polkadot Ecosystem Map
+viewType: "table"  # "table" or "graph"
+
+# Entity types to include
+entityTypes:
+  - "parachain"
+  - "dapp"
+  - "infrastructure"
+  - "defi"
+  - "wallet"
+  - "bridge"
+  - "nft"
+  - "gaming"
+
+# Table configuration (when viewType is "table")
+table:
+  columns:
+    - key: "name"
+      label: "Name"
+      type: "string"
+      sortable: true
+      filterable: true
+    - key: "type"
+      label: "Type" 
+      type: "string"
+      sortable: true
+      filterable: true
+    - key: "description"
+      label: "Description"
+      type: "string"
+      filterable: true
+    - key: "metrics.stars"
+      label: "GitHub Stars"
+      type: "number"
+      sortable: true
+    - key: "metrics.twitter_followers"
+      label: "Twitter Followers"
+      type: "number"
+      sortable: true
+    - key: "website"
+      label: "Website"
+      type: "link"
+    - key: "github"
+      label: "GitHub"
+      type: "link"
+    - key: "twitter"
+      label: "Twitter"
+      type: "link"
+    - key: "tags"
+      label: "Tags"
+      type: "tags"
+  defaultSort:
+    column: "metrics.twitter_followers"
+    direction: "desc"
+  pageSize: 25
+
+# Graph configuration (when viewType is "graph")
+graph:
+  physics:
+    alphaDecay: 0.0228
+    chargeStrength: -30
+    linkDistance: 30
+    linkStrength: 1
+    velocityDecay: 0.4
+  nodes:
+    sizeBy:
+      property: "size"
+      field: "metrics.twitter_followers"  # Use twitter followers for node sizing
+      minSize: 4
+      maxSize: 20
+    colorBy:
+      property: "type"
+      colors:
+        parachain: "#e6007a"
+        dapp: "#00d4aa"
+        infrastructure: "#ff6b35"
+        defi: "#4834d4"
+        wallet: "#2ed573"
+        bridge: "#ffa502"
+        nft: "#ff3838"
+        gaming: "#18dcff"
+  links:
+    showLabels: false
+    colorBy: "type"
+    colors:
+      "builds-on": "#999999"
+      "integrates": "#6c5ce7"
+      "partners": "#00b894"
+      "competes": "#e17055"
+      "supports": "#0984e3"
+      "uses": "#a29bfe"
+  layout:
+    centerForce: 0.1
+    repelForce: 1000

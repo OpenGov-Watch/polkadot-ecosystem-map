@@ -72,6 +72,10 @@ properties:
         type: "number"
         minimum: 0
         description: "Market capitalization (USD)"
+      twitter_followers:
+        type: "integer"
+        minimum: 0
+        description: "Twitter followers count"
     additionalProperties:
       type: "number"
   tags:

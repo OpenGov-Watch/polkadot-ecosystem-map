@@ -1,64 +1,15 @@
-import Ajv from 'ajv';
-import addFormats from 'ajv-formats';
 import * as yaml from 'js-yaml';
-import { EcosystemData, EcosystemEntity, ValidationResult } from '../types/types';
-
-// Initialize AJV with formats
-const ajv = new Ajv({ allErrors: true, verbose: true });
-addFormats(ajv);
-
-let dataSchema: any = null;
-
-/**
- * Load and parse the data schema from data.schema.yml
- */
-async function loadDataSchema(): Promise<any> {
-  if (dataSchema) return dataSchema;
-  
-  try {
-    const response = await fetch('/data.schema.yml');
-    if (!response.ok) {
-      throw new Error(`Failed to fetch schema: ${response.statusText}`);
-    }
-    const schemaText = await response.text();
-    dataSchema = yaml.load(schemaText);
-    return dataSchema;
-  } catch (error) {
-    console.error('Failed to load data schema:', error);
-    throw new Error('Could not load data schema. Make sure data.schema.yml exists in the public directory.');
-  }
-}
-
-/**
- * Validate a single entity against the schema
- */
-function validateEntity(entity: any, schema: any): ValidationResult {
-  const validate = ajv.compile(schema);
-  const valid = validate(entity);
-  
-  if (!valid && validate.errors) {    const errors = validate.errors.map((err: any) => ({
-      field: err.instancePath || err.schemaPath,
-      message: err.message || 'Validation error',
-      value: err.data
-    }));
-    
-    return { valid: false, errors };
-  }
-  
-  return { valid: true };
-}
+import { EcosystemData, EcosystemEntity } from '../types/types';
 
 /**
  * Fetch and parse YAML files from the data directory
+ * This is a runtime function that loads data without validation
  */
 async function fetchDataFiles(): Promise<EcosystemEntity[]> {
   const entities: EcosystemEntity[] = [];
   
   try {
-    // First, try to get the list of data files
-    // In a real implementation, you might have an index file or API endpoint
-    // For now, we'll try to fetch known file patterns
-    
+    // Try to fetch known file patterns
     const dataFilePatterns = [
       'parachains',
       'dapps', 
@@ -168,95 +119,73 @@ function generateMetadata(entities: EcosystemEntity[]) {
 }
 
 /**
- * Main function to load and validate all ecosystem data
+ * Main function to load ecosystem data (no validation at runtime)
  */
-export async function loadAndValidateData(): Promise<EcosystemData> {
+export async function loadEcosystemData(): Promise<EcosystemData> {
   console.log('Loading ecosystem data...');
   
   try {
-    // Load schema
-    const schema = await loadDataSchema();
-    console.log('Schema loaded successfully');
-    
     // Fetch all data files
-    const rawEntities = await fetchDataFiles();
-    console.log(`Loaded ${rawEntities.length} raw entities`);
+    const entities = await fetchDataFiles();
+    console.log(`Loaded ${entities.length} entities`);
     
-    if (rawEntities.length === 0) {
+    if (entities.length === 0) {
       throw new Error('No data files found. Make sure data files are available in the public/data directory.');
     }
     
-    // Validate each entity
-    const validatedEntities: EcosystemEntity[] = [];
-    const validationErrors: Array<{ slug: string; errors: any[] }> = [];
-    
-    rawEntities.forEach((entity, index) => {
-      if (!entity.slug) {
-        entity.slug = `entity-${index}`;
-      }
-      
-      const validation = validateEntity(entity, schema);
-      
-      if (validation.valid) {
-        validatedEntities.push(entity);
-      } else {
-        validationErrors.push({
-          slug: entity.slug || `entity-${index}`,
-          errors: validation.errors || []
-        });
-      }
+    // Filter out any obviously broken entities (best effort)
+    const validEntities = entities.filter(entity => {
+      return entity && entity.slug && entity.name && entity.type;
     });
     
-    // Log validation results
-    if (validationErrors.length > 0) {
-      console.warn(`Validation errors found in ${validationErrors.length} entities:`);
-      validationErrors.forEach(({ slug, errors }) => {
-        console.warn(`- ${slug}:`, errors);
-      });
-      
-      // Depending on requirements, you might want to halt here
-      // For now, we'll continue with valid entities only
-      if (validatedEntities.length === 0) {
-        throw new Error('No valid entities found after validation. Please check your data files and schema.');
-      }
+    if (validEntities.length < entities.length) {
+      console.warn(`Filtered out ${entities.length - validEntities.length} invalid entities`);
     }
     
-    // Extract relationships and generate metadata
-    const relationships = extractRelationships(validatedEntities);
-    const metadata = generateMetadata(validatedEntities);
-      const ecosystemData: EcosystemData = {
-      entities: validatedEntities,
+    // Extract relationships
+    const relationships = extractRelationships(validEntities);
+    
+    // Generate metadata
+    const metadata = generateMetadata(validEntities);
+    
+    console.log(`Successfully loaded ${validEntities.length} valid entities`);
+    console.log('Entity types:', metadata.entityTypes);
+    console.log('Entity counts:', metadata.entityTypeCounts);
+    
+    return {
+      entities: validEntities,
       entityTypes: metadata.entityTypes,
       relationships,
       metadata: {
-        lastUpdated: metadata.lastUpdated,
-        totalEntities: metadata.totalEntities,
-        entityTypeCounts: metadata.entityTypeCounts
+        ...metadata,
+        totalEntities: validEntities.length
       }
     };
     
-    console.log('Data loading and validation completed successfully');
-    console.log(`Valid entities: ${validatedEntities.length}`);
-    console.log(`Relationships: ${relationships.length}`);
-    console.log(`Entity types: ${metadata.entityTypes.join(', ')}`);
-    
-    return ecosystemData;
-    
   } catch (error) {
-    console.error('Failed to load and validate data:', error);
-    throw error;
+    console.error('Failed to load ecosystem data:', error);
+    throw new Error(`Failed to load ecosystem data: ${error instanceof Error ? error.message : 'Unknown error'}`);
   }
 }
 
 /**
- * Validate data on demand (for CLI usage)
+ * Cache for loaded data
  */
-export async function validateDataOnly(): Promise<void> {
-  try {
-    await loadAndValidateData();
-    console.log('✅ Data validation passed');
-  } catch (error) {
-    console.error('❌ Data validation failed:', error);
-    process.exit(1);
+let cachedData: EcosystemData | null = null;
+
+/**
+ * Get ecosystem data with caching
+ */
+export async function getEcosystemData(): Promise<EcosystemData> {
+  if (!cachedData) {
+    cachedData = await loadEcosystemData();
   }
+  return cachedData;
+}
+
+/**
+ * Clear the cache (useful for development)
+ */
+export function clearDataCache(): void {
+  cachedData = null;
 }

@@ -238,6 +238,48 @@ Validation errors will show:
 - Specific validation errors
 - Suggested fixes
 
+## Data Import & Development Workflow
+
+This project features a sophisticated data import system with **development-time validation** and **runtime best-effort loading** for optimal performance and reliability.
+
+### 🚀 Quick Production Update
+```bash
+npm run import-data full
+```
+One command downloads, transforms, and deploys **166 ecosystem entities**.
+
+### 👨‍💻 Development Workflow (Recommended)
+```bash
+# 1. Download to temp directory
+npm run import-data download
+
+# 2. Check schema compatibility  
+npm run check-compatibility
+
+# 3. Validate data quality
+npm run validate-temp-data
+
+# 4. Deploy to production
+npm run import-data deploy
+
+# 5. Clean up
+npm run import-data cleanup
+```
+
+### 🔧 Available Tools
+- **Schema Compatibility**: `npm run check-compatibility` - Ensures new data won't break the app
+- **Data Validation**: `npm run validate-temp-data` - Validates downloaded data quality
+- **Production Check**: `npm run validate-data` - Validates current production data
+- **Help**: `npm run import-data help` - Complete command reference
+
+### 📊 Architecture Benefits
+- **Development**: Full validation with schema compatibility checks
+- **Runtime**: Fast loading with graceful error handling
+- **Quality**: Ensures data integrity before deployment
+- **Performance**: No validation overhead in production
+
+For complete documentation, see [DATA_IMPORT.md](./DATA_IMPORT.md).
+
 ## Architecture
 
 ### Component Structure
