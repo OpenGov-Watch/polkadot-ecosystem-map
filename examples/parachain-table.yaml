@@ -1,0 +1,39 @@
+# Parachain-only Table Configuration
+viewType: "table"
+
+# Only show parachains
+entityTypes:
+  - "parachain"
+
+table:
+  columns:
+    - key: "name"
+      label: "Parachain Name"
+      type: "string"
+      sortable: true
+      filterable: true
+    - key: "description"
+      label: "Description"
+      type: "string"
+      filterable: true
+    - key: "metrics.tvl"
+      label: "TVL (USD)"
+      type: "number"
+      sortable: true
+    - key: "metrics.tx_count"
+      label: "Transactions"
+      type: "number"
+      sortable: true
+    - key: "website"
+      label: "Website"
+      type: "link"
+    - key: "github"
+      label: "GitHub"
+      type: "link"
+    - key: "tags"
+      label: "Tags"
+      type: "tags"
+  defaultSort:
+    column: "metrics.tvl"
+    direction: "desc"
+  pageSize: 50

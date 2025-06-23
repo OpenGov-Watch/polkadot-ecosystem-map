@@ -1,0 +1,76 @@
+# Default Render Configuration
+viewType: "table"  # "table" or "graph"
+
+# Entity types to include
+entityTypes:
+  - "parachain"
+  - "dapp"
+  - "infrastructure"
+
+# Table configuration (when viewType is "table")
+table:
+  columns:
+    - key: "name"
+      label: "Name"
+      type: "string"
+      sortable: true
+      filterable: true
+    - key: "type"
+      label: "Type" 
+      type: "string"
+      sortable: true
+      filterable: true
+    - key: "description"
+      label: "Description"
+      type: "string"
+      filterable: true
+    - key: "metrics.stars"
+      label: "GitHub Stars"
+      type: "number"
+      sortable: true
+    - key: "website"
+      label: "Website"
+      type: "link"
+  defaultSort:
+    column: "metrics.stars"
+    direction: "desc"
+  pageSize: 25
+
+# Graph configuration (when viewType is "graph")
+graph:
+  physics:
+    alphaDecay: 0.0228
+    chargeStrength: -30
+    linkDistance: 30
+    linkStrength: 1
+    velocityDecay: 0.4
+  nodes:
+    sizeBy:
+      property: "size"
+      field: "metrics.stars"
+      scale: "sqrt"
+      domain: [0, 1000]
+      range: [5, 20]
+    colorBy:
+      property: "color"
+      field: "type"
+      scale: "linear"
+      range:
+        - "#ff6b6b"  # parachain - red
+        - "#4ecdc4"  # dapp - teal
+        - "#45b7d1"  # infrastructure - blue
+        - "#96ceb4"  # defi - green
+        - "#fecca7"  # wallet - yellow
+        - "#ff9999"  # bridge - pink
+    labelField: "name"
+    showLabels: true
+  edges:
+    widthBy:
+      property: "width"
+      field: "weight"
+      scale: "linear"
+      domain: [1, 10]
+      range: [1, 5]
+    showLabels: false
+  width: 800
+  height: 600

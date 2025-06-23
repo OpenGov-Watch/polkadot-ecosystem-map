@@ -1,0 +1,78 @@
+- slug: "polkadot-js"
+  name: "Polkadot.js"
+  type: "infrastructure"
+  description: "Collection of tools, utilities and libraries for interacting with the Polkadot ecosystem"
+  website: "https://polkadot.js.org"
+  github: "https://github.com/polkadot-js"
+  twitter: "https://twitter.com/polkadotjs"
+  metrics:
+    stars: 1689
+    forks: 1456
+    contributors: 234
+  tags:
+    - "javascript"
+    - "sdk"
+    - "api"
+    - "tools"
+  relationships:
+    - target: "substrate"
+      type: "builds-on"
+      weight: 10
+
+- slug: "substrate"
+  name: "Substrate"
+  type: "infrastructure"
+  description: "Modular framework for building blockchains"
+  website: "https://substrate.io"
+  github: "https://github.com/paritytech/substrate"
+  twitter: "https://twitter.com/substrate_io"
+  metrics:
+    stars: 8234
+    forks: 2654
+    contributors: 567
+  tags:
+    - "framework"
+    - "rust"
+    - "blockchain"
+    - "modular"
+  relationships: []
+
+- slug: "parity-signer"
+  name: "Parity Signer"
+  type: "wallet"
+  description: "Air-gapped mobile wallet for Polkadot and Kusama"
+  website: "https://www.parity.io/technologies/signer/"
+  github: "https://github.com/paritytech/parity-signer"
+  metrics:
+    stars: 456
+    forks: 123
+    contributors: 34
+  tags:
+    - "mobile"
+    - "air-gapped"
+    - "security"
+  relationships:
+    - target: "polkadot-js"
+      type: "integrates"
+      weight: 7
+
+- slug: "subscan"
+  name: "Subscan"
+  type: "infrastructure"
+  description: "Blockchain explorer for Substrate-based chains"
+  website: "https://subscan.io"
+  metrics:
+    stars: 234
+    forks: 67
+    contributors: 23
+  tags:
+    - "explorer"
+    - "analytics"
+    - "substrate"
+  relationships:
+    - target: "substrate"
+      type: "builds-on"
+      weight: 9
+    - target: "polkadot-js"
+      type: "uses"
+      weight: 6

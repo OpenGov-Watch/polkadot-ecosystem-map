@@ -1,0 +1,61 @@
+# Full Graph with Custom Physics
+viewType: "graph"
+
+# Include all major entity types
+entityTypes:
+  - "parachain"
+  - "dapp"
+  - "infrastructure" 
+  - "wallet"
+
+graph:
+  # Custom physics for better layout
+  physics:
+    alphaDecay: 0.02          # Slower cooling for more stable layout
+    chargeStrength: -100      # Stronger repulsion between nodes
+    linkDistance: 50          # Longer links for better spacing
+    linkStrength: 0.5         # Weaker links for more flexibility
+    velocityDecay: 0.3        # Lower friction for smoother movement
+    gravity: 0.1              # Small gravitational pull to center
+  
+  # Node styling based on GitHub stars (logarithmic scale)
+  nodes:
+    sizeBy:
+      property: "size"
+      field: "metrics.stars"
+      scale: "log"              # Logarithmic scaling for wide range
+      domain: [1, 10000]        # Min/max GitHub stars
+      range: [8, 30]            # Node size range in pixels
+    colorBy:
+      property: "color"
+      field: "type"
+      scale: "linear"
+      range:
+        - "#e74c3c"             # parachain - red
+        - "#3498db"             # dapp - blue  
+        - "#2ecc71"             # infrastructure - green
+        - "#f39c12"             # wallet - orange
+    labelField: "name"
+    showLabels: true
+  
+  # Edge styling based on relationship weight
+  edges:
+    widthBy:
+      property: "width"
+      field: "weight"
+      scale: "sqrt"             # Square root scaling
+      domain: [1, 20]           # Relationship weight range
+      range: [1, 8]             # Line width range
+    colorBy:
+      property: "color"
+      field: "type"
+      scale: "linear"
+      range:
+        - "#95a5a6"             # uses - gray
+        - "#34495e"             # integrates - dark gray
+        - "#7f8c8d"             # builds-on - medium gray
+    showLabels: false
+  
+  # Large canvas for better visualization
+  width: 1200
+  height: 800

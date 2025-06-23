@@ -1,0 +1,87 @@
+- slug: "stellaswap"
+  name: "StellaSwap"
+  type: "dapp"
+  description: "Multi-featured DEX on Moonbeam with yield farming and NFT features"
+  website: "https://stellaswap.com"
+  github: "https://github.com/stellaswap"
+  twitter: "https://twitter.com/StellaSwap"
+  metrics:
+    stars: 67
+    forks: 23
+    contributors: 12
+    tvl: 15000000
+    tx_count: 2300000
+  tags:
+    - "dex"
+    - "yield-farming"
+    - "moonbeam"
+  relationships:
+    - target: "moonbeam"
+      type: "builds-on"
+      weight: 10
+    - target: "metamask"
+      type: "integrates"
+      weight: 8
+
+- slug: "beamswap"
+  name: "BeamSwap"
+  type: "dapp"
+  description: "Decentralized exchange on Moonbeam"
+  website: "https://beamswap.io"
+  twitter: "https://twitter.com/BeamSwap"
+  metrics:
+    stars: 34
+    forks: 15
+    contributors: 8
+    tvl: 8500000
+    tx_count: 1200000
+  tags:
+    - "dex"
+    - "moonbeam"
+    - "amm"
+  relationships:
+    - target: "moonbeam"
+      type: "builds-on"
+      weight: 10
+    - target: "stellaswap"
+      type: "competes"
+      weight: 7
+
+- slug: "arthswap"
+  name: "ArthSwap"
+  type: "dapp"
+  description: "One-stop DeFi protocol on Astar Network"
+  website: "https://arthswap.org"
+  twitter: "https://twitter.com/ArthSwap"
+  metrics:
+    stars: 23
+    forks: 9
+    contributors: 6
+    tvl: 4200000
+    tx_count: 567000
+  tags:
+    - "dex"
+    - "astar"
+    - "defi"
+  relationships:
+    - target: "astar"
+      type: "builds-on"
+      weight: 10
+
+- slug: "metamask"
+  name: "MetaMask"
+  type: "wallet"
+  description: "Popular Ethereum wallet with Polkadot EVM chains support"
+  website: "https://metamask.io"
+  github: "https://github.com/MetaMask"
+  twitter: "https://twitter.com/MetaMask"
+  metrics:
+    stars: 11234
+    forks: 4567
+    contributors: 234
+  tags:
+    - "wallet"
+    - "ethereum"
+    - "browser"
+    - "mobile"
+  relationships: []

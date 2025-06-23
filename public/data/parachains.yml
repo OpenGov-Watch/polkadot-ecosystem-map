@@ -1,0 +1,125 @@
+- slug: "acala"
+  name: "Acala"
+  type: "parachain"
+  description: "Decentralized finance hub and stablecoin platform for Polkadot"
+  website: "https://acala.network"
+  github: "https://github.com/AcalaNetwork"
+  twitter: "https://twitter.com/AcalaNetwork"
+  metrics:
+    stars: 692
+    forks: 251
+    contributors: 87
+    tvl: 45000000
+    tx_count: 2500000
+  tags:
+    - "defi"
+    - "stablecoin"
+    - "dex"
+  relationships:
+    - target: "karura"
+      type: "supports"
+      weight: 8
+    - target: "polkadot-js"
+      type: "uses"
+      weight: 5
+
+- slug: "moonbeam"
+  name: "Moonbeam"
+  type: "parachain"
+  description: "Ethereum-compatible smart contract platform on Polkadot"
+  website: "https://moonbeam.network"
+  github: "https://github.com/moonbeam-foundation"
+  twitter: "https://twitter.com/MoonbeamNetwork"
+  metrics:
+    stars: 394
+    forks: 156
+    contributors: 52
+    tvl: 78000000
+    tx_count: 8900000
+  tags:
+    - "ethereum-compatible"
+    - "smart-contracts"
+    - "evm"
+  relationships:
+    - target: "metamask"
+      type: "integrates"
+      weight: 9
+    - target: "polkadot-js"
+      type: "uses"
+      weight: 6
+
+- slug: "astar"
+  name: "Astar"
+  type: "parachain"
+  description: "Multi-chain smart contract platform supporting WebAssembly and EVM"
+  website: "https://astar.network"
+  github: "https://github.com/AstarNetwork"
+  twitter: "https://twitter.com/AstarNetwork"
+  metrics:
+    stars: 667
+    forks: 287
+    contributors: 74
+    tvl: 32000000
+    tx_count: 5600000
+  tags:
+    - "smart-contracts"
+    - "webassembly"
+    - "evm"
+    - "multi-chain"
+  relationships:
+    - target: "metamask"
+      type: "integrates"
+      weight: 7
+    - target: "polkadot-js"
+      type: "uses"
+      weight: 6
+
+- slug: "parallel"
+  name: "Parallel Finance"
+  type: "parachain"
+  description: "Decentralized money market protocol on Polkadot"
+  website: "https://parallel.fi"
+  github: "https://github.com/parallel-finance"
+  twitter: "https://twitter.com/ParallelFi"
+  metrics:
+    stars: 245
+    forks: 89
+    contributors: 28
+    tvl: 12000000
+    tx_count: 890000
+  tags:
+    - "defi"
+    - "lending"
+    - "money-market"
+  relationships:
+    - target: "acala"
+      type: "competes"
+      weight: 6
+    - target: "polkadot-js"
+      type: "uses"
+      weight: 5
+
+- slug: "karura"
+  name: "Karura"
+  type: "parachain"
+  description: "DeFi hub of Kusama, sister network to Acala"
+  website: "https://karura.network"
+  github: "https://github.com/AcalaNetwork/Acala"
+  twitter: "https://twitter.com/KaruraNetwork"
+  metrics:
+    stars: 692
+    forks: 251
+    contributors: 87
+    tvl: 8500000
+    tx_count: 1200000
+  tags:
+    - "defi"
+    - "kusama"
+    - "stablecoin"
+  relationships:
+    - target: "acala"
+      type: "partners"
+      weight: 10
+    - target: "polkadot-js"
+      type: "uses"
+      weight: 5
