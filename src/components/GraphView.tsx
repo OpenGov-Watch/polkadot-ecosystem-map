@@ -1,14 +1,76 @@
-import React, { useMemo, useCallback, useState } from 'react';
+import React, { useMemo, useCallback, useState, useRef, useEffect } from 'react';
 import ForceGraph2D from 'react-force-graph-2d';
 import { useData } from '../contexts/DataContext';
 import { useConfig } from '../contexts/ConfigContext';
-import { GraphNode, GraphLink } from '../types/types';
+import { GraphNode, GraphLink, GraphPhysics } from '../types/types';
+import PhysicsControls from './PhysicsControls';
 
 const GraphView: React.FC = () => {
   const { filteredEntities, data } = useData();
   const { config } = useConfig();
   const [hoveredNode, setHoveredNode] = useState<GraphNode | null>(null);
   const [selectedNode, setSelectedNode] = useState<GraphNode | null>(null);
+  const [physics, setPhysics] = useState<GraphPhysics>(() => config.graph?.physics || {});
+  const forceRef = useRef<any>();
+
+  // Default physics values
+  const defaultPhysics: GraphPhysics = {
+    alphaDecay: 0.0228,
+    chargeStrength: -30,
+    linkDistance: 30,
+    linkStrength: 1,
+    velocityDecay: 0.4,
+    gravity: 0
+  };
+
+  // Handle physics changes
+  const handlePhysicsChange = useCallback((newPhysics: GraphPhysics) => {
+    setPhysics(newPhysics);
+  }, []);
+  // Reset physics to defaults
+  const handlePhysicsReset = useCallback(() => {
+    setPhysics(defaultPhysics);
+  }, []);
+
+  // Restart the simulation
+  const handleRestartSimulation = useCallback(() => {
+    if (forceRef.current) {
+      forceRef.current.d3ReheatSimulation();
+    }
+  }, []);
+
+  // Update D3 forces when physics change
+  useEffect(() => {
+    if (forceRef.current) {
+      const fg = forceRef.current;
+      
+      // Update charge force (node repulsion)
+      if (physics.chargeStrength !== undefined) {
+        fg.d3Force('charge')?.strength(physics.chargeStrength);
+      }
+      
+      // Update link force (edge attraction)
+      if (physics.linkDistance !== undefined || physics.linkStrength !== undefined) {
+        const linkForce = fg.d3Force('link');
+        if (linkForce) {
+          if (physics.linkDistance !== undefined) {
+            linkForce.distance(physics.linkDistance);
+          }
+          if (physics.linkStrength !== undefined) {
+            linkForce.strength(physics.linkStrength);
+          }
+        }
+      }
+      
+      // Update center force (gravity toward center)
+      if (physics.gravity !== undefined) {
+        fg.d3Force('center')?.strength(physics.gravity);
+      }
+      
+      // Restart simulation with new forces
+      fg.d3ReheatSimulation();
+    }
+  }, [physics]);
 
   // Filter entities based on configured entity types
   const filteredData = useMemo(() => {
@@ -268,9 +330,14 @@ const GraphView: React.FC = () => {
       </div>
     );
   }
-
   return (
-    <div className="graph-view">
+    <div className="graph-view">      <PhysicsControls
+        physics={physics}
+        onPhysicsChange={handlePhysicsChange}
+        onReset={handlePhysicsReset}
+        onRestart={handleRestartSimulation}
+      />
+      
       <div className="graph-controls">
         <div className="graph-stats">
           <span>Nodes: {nodes.length}</span>
@@ -301,6 +368,7 @@ const GraphView: React.FC = () => {
       </div>
 
       <div className="graph-container">        <ForceGraph2D
+          ref={forceRef}
           graphData={graphData}
           width={config.graph.width || 800}
           height={config.graph.height || 600}
@@ -311,8 +379,8 @@ const GraphView: React.FC = () => {
           onNodeHover={handleNodeHover}
           onNodeClick={handleNodeClick}
           // Physics configuration
-          d3AlphaDecay={config.graph.physics.alphaDecay || 0.0228}
-          d3VelocityDecay={config.graph.physics.velocityDecay || 0.4}
+          d3AlphaDecay={physics.alphaDecay || defaultPhysics.alphaDecay}
+          d3VelocityDecay={physics.velocityDecay || defaultPhysics.velocityDecay}
           linkDirectionalParticles={0}
           // Enable zoom and pan
           enableZoomInteraction={true}

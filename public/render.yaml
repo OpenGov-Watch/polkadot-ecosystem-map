@@ -1,5 +1,5 @@
 # Default Render Configuration
-viewType: "table"  # "table" or "graph"
+viewType: "graph"  # "table" or "graph"
 
 # Entity types to include
 entityTypes:
