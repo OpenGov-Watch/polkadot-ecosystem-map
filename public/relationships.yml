@@ -1,0 +1,105 @@
+# Manual Relationship Definitions
+# This file allows you to define static relationships between entities
+# These relationships are separate from those embedded in entity data files
+
+# Manual Relationship Definitions
+# This file allows you to define static relationships between entities
+# These relationships are separate from those embedded in entity data files
+
+relationships:
+  # Polkadot ecosystem core relationships
+  - source: "astar-shiden"
+    target: "deeper-network"
+    type: "partnership"
+    weight: 6
+    description: "Both are parachains in the Polkadot ecosystem working on complementary technologies"
+    category: "strategic"
+    bidirectional: true
+    metadata:
+      confidence: 7
+      notes: "Both focus on different aspects of the Polkadot ecosystem"
+
+  # Example of technical dependency (if we had a polkadot entity)
+  - source: "astar-shiden"
+    target: "polkadot-core"
+    type: "dependency"
+    weight: 10
+    description: "Astar/Shiden runs as parachains on Polkadot/Kusama"
+    category: "technical"
+    bidirectional: false
+    metadata:
+      established: "2021-12-01"
+      confidence: 10
+      notes: "Astar won the 3rd parachain slot auction on Polkadot"
+
+  # Integration example
+  - source: "deeper-network"
+    target: "astar-shiden"
+    type: "integration"
+    weight: 5
+    description: "Potential integration of privacy features with smart contracts"
+    category: "integration"
+    bidirectional: false
+    metadata:
+      confidence: 5
+      notes: "Hypothetical integration possibility"
+
+  # Competition relationship
+  - source: "astar-shiden"
+    target: "moonbeam-moonriver"
+    type: "competitor"
+    weight: 7
+    description: "Both are EVM-compatible smart contract platforms"
+    category: "market"
+    bidirectional: true
+    metadata:
+      confidence: 8
+      notes: "Both compete for developers and projects in Polkadot ecosystem"
+
+# Relationship Categories
+# Define different categories for organization and filtering
+categories:
+  strategic:
+    name: "Strategic Partnerships"
+    color: "#4CAF50"
+    style: "solid"
+  technical: 
+    name: "Technical Dependencies"
+    color: "#2196F3"
+    style: "dashed"
+  integration:
+    name: "Product Integrations"
+    color: "#FF9800"
+    style: "dotted"
+  market:
+    name: "Market Relationships"
+    color: "#9C27B0"
+    style: "solid"
+
+# Relationship Types
+# Define the types of relationships supported
+types:
+  partnership:
+    name: "Partnership"
+    description: "Strategic business partnership"
+    default_weight: 8
+  dependency:
+    name: "Dependency"
+    description: "Technical or operational dependency"
+    default_weight: 9
+  integration:
+    name: "Integration"
+    description: "Product or service integration"
+    default_weight: 7
+  competitor:
+    name: "Competitor"
+    description: "Competing products or services"
+    default_weight: 3
+  parent_child:
+    name: "Parent/Child"
+    description: "Hierarchical relationship"
+    default_weight: 10
+  uses:
+    name: "Uses"
+    description: "One entity uses another's service/product"
+    default_weight: 6

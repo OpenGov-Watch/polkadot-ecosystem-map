@@ -72,5 +72,14 @@ graph:
       domain: [1, 10]
       range: [1, 5]
     showLabels: false
+    # Relationship display options
+    showManualRelationships: true
+    showEntityRelationships: true
+    styleByCategory: true
+    styleByType: false
+    # Filter by specific relationship types (empty means show all)
+    relationshipTypes: []
+    # Filter by specific relationship categories (empty means show all)  
+    relationshipCategories: []
   width: 800
   height: 600

@@ -1,0 +1,103 @@
+# Schema for manual relationships configuration
+# This defines the structure and validation rules for relationships.yml
+
+relationships:
+  type: array
+  items:
+    type: object
+    required: [source, target, type, weight]
+    properties:
+      source:
+        type: string
+        description: "Slug of the source entity"
+      target:
+        type: string
+        description: "Slug of the target entity"
+      type:
+        type: string
+        description: "Type of relationship"
+        enum: [partnership, dependency, integration, competitor, parent_child, uses, custom]
+      weight:
+        type: number
+        minimum: 1
+        maximum: 10
+        description: "Relationship strength/importance (1-10)"
+      description:
+        type: string
+        description: "Human readable description of the relationship"
+      category:
+        type: string
+        description: "Category for grouping relationships"
+        enum: [strategic, technical, integration, market, operational, custom]
+      bidirectional:
+        type: boolean
+        default: false
+        description: "Whether the relationship should be displayed in both directions"
+      metadata:
+        type: object
+        description: "Additional metadata about the relationship"
+        properties:
+          established:
+            type: string
+            format: date
+            description: "Date the relationship was established"
+          source_url:
+            type: string
+            format: uri
+            description: "URL to source documentation"
+          confidence:
+            type: number
+            minimum: 1
+            maximum: 10
+            description: "Confidence level in relationship accuracy"
+          notes:
+            type: string
+            description: "Additional notes"
+
+categories:
+  type: object
+  description: "Relationship category definitions"
+  patternProperties:
+    "^[a-z_]+$":
+      type: object
+      required: [name, color]
+      properties:
+        name:
+          type: string
+          description: "Display name for the category"
+        color:
+          type: string
+          pattern: "^#[0-9A-Fa-f]{6}$"
+          description: "Hex color code for visualization"
+        style:
+          type: string
+          enum: [solid, dashed, dotted]
+          default: solid
+          description: "Line style for visualization"
+        description:
+          type: string
+          description: "Category description"
+
+types:
+  type: object
+  description: "Relationship type definitions"
+  patternProperties:
+    "^[a-z_]+$":
+      type: object
+      required: [name]
+      properties:
+        name:
+          type: string
+          description: "Display name for the relationship type"
+        description:
+          type: string
+          description: "Description of what this relationship type means"
+        default_weight:
+          type: number
+          minimum: 1
+          maximum: 10
+          description: "Default weight for this relationship type"
+        color:
+          type: string
+          pattern: "^#[0-9A-Fa-f]{6}$"
+          description: "Optional override color for this type"

@@ -10,6 +10,7 @@
     "type-check": "tsc --noEmit",
     "validate-data": "tsx src/scripts/validate-data.ts",
     "validate-temp-data": "tsx scripts/validate-temp-data.ts",
+    "validate-relationships": "tsx scripts/validate-relationships.ts",
     "check-compatibility": "tsx scripts/check-schema-compatibility.ts public/data.schema.yml temp-ecosystem-data/data.schema.yml",
     "generate-types": "json2ts -i data.schema.yml -o src/types/generated.ts",
     "import-data": "tsx scripts/import-ecosystem-data.ts",

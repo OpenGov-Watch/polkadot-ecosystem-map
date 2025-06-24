@@ -5,7 +5,7 @@ import { useConfig } from '../contexts/ConfigContext';
 import { GraphNode, GraphLink } from '../types/types';
 
 const GraphView: React.FC = () => {
-  const { filteredEntities } = useData();
+  const { filteredEntities, data } = useData();
   const { config } = useConfig();
   const [hoveredNode, setHoveredNode] = useState<GraphNode | null>(null);
   const [selectedNode, setSelectedNode] = useState<GraphNode | null>(null);
@@ -25,29 +25,57 @@ const GraphView: React.FC = () => {
     }));
   }, [filteredData]);
 
-  // Create links from relationships
+  // Create links from enhanced relationships
   const links = useMemo((): GraphLink[] => {
     const links: GraphLink[] = [];
     const nodeIds = new Set(nodes.map(n => n.id));
+    const edgeConfig = config.graph?.edges;
 
-    filteredData.forEach(entity => {
-      if (entity.relationships) {
-        entity.relationships.forEach(rel => {
-          // Only create links if both source and target exist in filtered data
-          if (nodeIds.has(rel.target)) {
-            links.push({
-              source: entity.slug,
-              target: rel.target,
-              type: rel.type,
-              weight: rel.weight || 1
-            });
-          }
-        });
+    // Filter relationships based on configuration
+    const filteredRelationships = data.relationships.filter(rel => {
+      // Check if both nodes exist in filtered data
+      if (!nodeIds.has(rel.source) || !nodeIds.has(rel.target)) {
+        return false;
       }
+
+      // Filter by manual/entity relationships
+      if (edgeConfig?.showManualRelationships === false && rel.isManual) {
+        return false;
+      }
+      if (edgeConfig?.showEntityRelationships === false && !rel.isManual) {
+        return false;
+      }
+
+      // Filter by relationship types
+      if (edgeConfig?.relationshipTypes?.length && 
+          !edgeConfig.relationshipTypes.includes(rel.type)) {
+        return false;
+      }
+
+      // Filter by relationship categories
+      if (edgeConfig?.relationshipCategories?.length && rel.category &&
+          !edgeConfig.relationshipCategories.includes(rel.category)) {
+        return false;
+      }
+
+      return true;
+    });
+
+    // Convert to graph links
+    filteredRelationships.forEach(rel => {
+      links.push({
+        source: rel.source,
+        target: rel.target,
+        type: rel.type,
+        weight: rel.weight,
+        category: rel.category,
+        isManual: rel.isManual,
+        description: rel.description
+      });
     });
 
     return links;
-  }, [filteredData, nodes]);
+  }, [data.relationships, nodes, config.graph?.edges]);
 
   // Graph data
   const graphData = useMemo(() => ({
@@ -120,7 +148,8 @@ const GraphView: React.FC = () => {
     const widthConfig = config.graph?.edges.widthBy;
     if (!widthConfig) return 1;
 
-    const value = link.weight || 1;    const { scale, domain = [1, 10], range = [1, 5] } = widthConfig;
+    const value = link.weight || 1;
+    const { scale, domain = [1, 10], range = [1, 5] } = widthConfig;
     const [domainMin, domainMax] = domain;
     const [rangeMin, rangeMax] = range as [number, number];
 
@@ -138,6 +167,54 @@ const GraphView: React.FC = () => {
 
     return rangeMin + (rangeMax - rangeMin) * scaledValue;
   }, [config.graph?.edges.widthBy]);
+
+  // Get link color based on configuration
+  const getLinkColor = useCallback((link: GraphLink): string => {
+    const edgeConfig = config.graph?.edges;
+    const manualConfig = data.manualRelationshipsConfig;
+
+    // Style by category if enabled and category exists
+    if (edgeConfig?.styleByCategory && link.category && manualConfig?.categories) {
+      const categoryConfig = manualConfig.categories[link.category];
+      if (categoryConfig?.color) {
+        return categoryConfig.color;
+      }
+    }
+
+    // Style by type if enabled
+    if (edgeConfig?.styleByType && manualConfig?.types) {
+      const typeConfig = manualConfig.types[link.type];
+      if (typeConfig?.color) {
+        return typeConfig.color;
+      }
+    }
+
+    // Default colors based on manual vs entity relationships
+    if (link.isManual) {
+      return '#FF6B6B'; // Red for manual relationships
+    }
+
+    return '#69b7d4'; // Default blue for entity relationships
+  }, [config.graph?.edges, data.manualRelationshipsConfig]);
+  // Get link style (dash pattern) based on category
+  const getLinkDashArray = useCallback((link: GraphLink): number[] | null => {
+    const edgeConfig = config.graph?.edges;
+    const manualConfig = data.manualRelationshipsConfig;
+
+    if (edgeConfig?.styleByCategory && link.category && manualConfig?.categories) {
+      const categoryConfig = manualConfig.categories[link.category];
+      switch (categoryConfig?.style) {
+        case 'dashed':
+          return [5, 5];
+        case 'dotted':
+          return [2, 3];
+        default:
+          return null; // solid
+      }
+    }
+
+    return null;
+  }, [config.graph?.edges, data.manualRelationshipsConfig]);
 
   // Node hover handler
   const handleNodeHover = useCallback((node: GraphNode | null) => {
@@ -229,7 +306,8 @@ const GraphView: React.FC = () => {
           height={config.graph.height || 600}
           nodeCanvasObject={paintNode}
           linkWidth={getLinkWidth}
-          linkColor={() => '#999'}
+          linkColor={getLinkColor}
+          linkLineDash={getLinkDashArray}
           onNodeHover={handleNodeHover}
           onNodeClick={handleNodeClick}
           // Physics configuration

@@ -1,5 +1,5 @@
 import * as yaml from 'js-yaml';
-import { EcosystemData, EcosystemEntity } from '../types/types';
+import { EcosystemData, EcosystemEntity, ManualRelationshipsConfig, EnhancedRelationship } from '../types/types';
 
 /**
  * Fetch and parse YAML files from the data directory
@@ -72,16 +72,11 @@ async function fetchDataFiles(): Promise<EcosystemEntity[]> {
 }
 
 /**
- * Extract relationships from entities
+ * Extract relationships from entities and convert to enhanced format
  */
-function extractRelationships(entities: EcosystemEntity[]) {
-  const relationships: Array<{
-    source: string;
-    target: string;
-    type: string;
-    weight?: number;
-  }> = [];
-  
+function extractEntityRelationships(entities: EcosystemEntity[]): EnhancedRelationship[] {
+  const relationships: EnhancedRelationship[] = [];
+
   entities.forEach(entity => {
     if (entity.relationships) {
       entity.relationships.forEach(rel => {
@@ -89,13 +84,74 @@ function extractRelationships(entities: EcosystemEntity[]) {
           source: entity.slug,
           target: rel.target,
           type: rel.type,
-          weight: rel.weight || 1
+          weight: rel.weight || 1,
+          isManual: false
         });
       });
     }
   });
-  
+
   return relationships;
+}
+
+/**
+ * Convert manual relationships to enhanced format
+ */
+function processManualRelationships(manualConfig: ManualRelationshipsConfig): EnhancedRelationship[] {
+  const relationships: EnhancedRelationship[] = [];
+
+  manualConfig.relationships.forEach(rel => {
+    // Add the primary relationship
+    relationships.push({
+      ...rel,
+      isManual: true
+    });
+
+    // Add reverse relationship if bidirectional
+    if (rel.bidirectional) {
+      relationships.push({
+        source: rel.target,
+        target: rel.source,
+        type: rel.type,
+        weight: rel.weight,
+        description: rel.description,
+        category: rel.category,
+        bidirectional: false, // Don't create another reverse
+        isManual: true,
+        metadata: rel.metadata
+      });
+    }
+  });
+
+  return relationships;
+}
+
+/**
+ * Merge entity relationships with manual relationships
+ */
+function mergeRelationships(
+  entityRelationships: EnhancedRelationship[],
+  manualRelationships: EnhancedRelationship[]
+): EnhancedRelationship[] {
+  const relationshipMap = new Map<string, EnhancedRelationship>();
+
+  // Add entity relationships first
+  entityRelationships.forEach(rel => {
+    const key = `${rel.source}-${rel.target}-${rel.type}`;
+    relationshipMap.set(key, rel);
+  });
+
+  // Add manual relationships, potentially overriding entity relationships
+  manualRelationships.forEach(rel => {
+    const key = `${rel.source}-${rel.target}-${rel.type}`;
+    if (relationshipMap.has(key)) {
+      // Manual relationship overrides entity relationship
+      console.log(`Manual relationship overriding entity relationship: ${key}`);
+    }
+    relationshipMap.set(key, rel);
+  });
+
+  return Array.from(relationshipMap.values());
 }
 
 /**
@@ -116,6 +172,24 @@ function generateMetadata(entities: EcosystemEntity[]) {
     entityTypeCounts,
     entityTypes: Array.from(entityTypes)
   };
+}
+
+/**
+ * Fetch and parse manual relationships from relationships.yml
+ */
+async function fetchManualRelationships(): Promise<ManualRelationshipsConfig | null> {
+  try {
+    const response = await fetch('/relationships.yml');
+    if (response.ok) {
+      const yamlText = await response.text();
+      const parsedData = yaml.load(yamlText) as ManualRelationshipsConfig;
+      console.log(`Loaded ${parsedData.relationships?.length || 0} manual relationships`);
+      return parsedData;
+    }
+  } catch (error) {
+    console.warn('Could not load relationships.yml:', error);
+  }
+  return null;
 }
 
 /**
@@ -142,23 +216,37 @@ export async function loadEcosystemData(): Promise<EcosystemData> {
       console.warn(`Filtered out ${entities.length - validEntities.length} invalid entities`);
     }
     
-    // Extract relationships
-    const relationships = extractRelationships(validEntities);
+    // Extract entity relationships
+    const entityRelationships = extractEntityRelationships(validEntities);
+    
+    // Load manual relationships
+    const manualRelationshipsConfig = await fetchManualRelationships();
+    const manualRelationships = manualRelationshipsConfig 
+      ? processManualRelationships(manualRelationshipsConfig)
+      : [];
+    
+    // Merge all relationships
+    const allRelationships = mergeRelationships(entityRelationships, manualRelationships);
     
     // Generate metadata
     const metadata = generateMetadata(validEntities);
     
     console.log(`Successfully loaded ${validEntities.length} valid entities`);
+    console.log(`Loaded ${entityRelationships.length} entity relationships`);
+    console.log(`Loaded ${manualRelationships.length} manual relationships`);
+    console.log(`Total relationships: ${allRelationships.length}`);
     console.log('Entity types:', metadata.entityTypes);
     console.log('Entity counts:', metadata.entityTypeCounts);
-    
-    return {
+      return {
       entities: validEntities,
       entityTypes: metadata.entityTypes,
-      relationships,
+      relationships: allRelationships,
+      manualRelationshipsConfig: manualRelationshipsConfig || undefined,
       metadata: {
         ...metadata,
-        totalEntities: validEntities.length
+        totalEntities: validEntities.length,
+        totalRelationships: allRelationships.length,
+        manualRelationships: manualRelationships.length
       }
     };
     

@@ -25,20 +25,78 @@ export interface EcosystemEntity {
   [key: string]: any; // Allow additional properties
 }
 
+// Manual relationship definition
+export interface ManualRelationship {
+  source: string;
+  target: string;
+  type: string;
+  weight: number;
+  description?: string;
+  category?: string;
+  bidirectional?: boolean;
+  metadata?: {
+    established?: string;
+    source_url?: string;
+    confidence?: number;
+    notes?: string;
+    [key: string]: any;
+  };
+}
+
+// Relationship category configuration
+export interface RelationshipCategory {
+  name: string;
+  color: string;
+  style?: 'solid' | 'dashed' | 'dotted';
+  description?: string;
+}
+
+// Relationship type configuration
+export interface RelationshipType {
+  name: string;
+  description?: string;
+  default_weight?: number;
+  color?: string;
+}
+
+// Manual relationships configuration
+export interface ManualRelationshipsConfig {
+  relationships: ManualRelationship[];
+  categories?: Record<string, RelationshipCategory>;
+  types?: Record<string, RelationshipType>;
+}
+
+// Enhanced relationship interface that includes source info
+export interface EnhancedRelationship {
+  source: string;
+  target: string;
+  type: string;
+  weight: number;
+  description?: string;
+  category?: string;
+  bidirectional?: boolean;
+  isManual?: boolean; // Flag to distinguish manual vs entity-embedded relationships
+  metadata?: {
+    established?: string;
+    source_url?: string;
+    confidence?: number;
+    notes?: string;
+    [key: string]: any;
+  };
+}
+
 // Collection of all ecosystem data
 export interface EcosystemData {
   entities: EcosystemEntity[];
   entityTypes: string[];
-  relationships: Array<{
-    source: string;
-    target: string;
-    type: string;
-    weight?: number;
-  }>;
+  relationships: EnhancedRelationship[]; // Updated to use enhanced relationships
+  manualRelationshipsConfig?: ManualRelationshipsConfig;
   metadata: {
     lastUpdated: string;
     totalEntities: number;
     entityTypeCounts: Record<string, number>;
+    totalRelationships?: number;
+    manualRelationships?: number;
   };
 }
 
@@ -84,6 +142,13 @@ export interface EdgeStyling {
   widthBy?: StylingRule;
   colorBy?: StylingRule;
   showLabels?: boolean;
+  // New relationship-specific styling options
+  showManualRelationships?: boolean;
+  showEntityRelationships?: boolean;
+  relationshipTypes?: string[]; // Filter by relationship types
+  relationshipCategories?: string[]; // Filter by relationship categories
+  styleByCategory?: boolean; // Whether to style edges by category
+  styleByType?: boolean; // Whether to style edges by type
 }
 
 // Main render configuration
@@ -137,4 +202,7 @@ export interface GraphLink {
   target: string | GraphNode;
   type: string;
   weight?: number;
+  category?: string;
+  isManual?: boolean;
+  description?: string;
 }
