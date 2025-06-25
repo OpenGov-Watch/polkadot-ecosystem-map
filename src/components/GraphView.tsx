@@ -26,17 +26,9 @@ const GraphView: React.FC = () => {
   // Handle physics changes
   const handlePhysicsChange = useCallback((newPhysics: GraphPhysics) => {
     setPhysics(newPhysics);
-  }, []);
-  // Reset physics to defaults
+  }, []);  // Reset physics to defaults
   const handlePhysicsReset = useCallback(() => {
     setPhysics(defaultPhysics);
-  }, []);
-
-  // Restart the simulation
-  const handleRestartSimulation = useCallback(() => {
-    if (forceRef.current) {
-      forceRef.current.d3ReheatSimulation();
-    }
   }, []);
 
   // Update D3 forces when physics change
@@ -139,11 +131,39 @@ const GraphView: React.FC = () => {
     return links;
   }, [data.relationships, nodes, config.graph?.edges]);
 
-  // Graph data
-  const graphData = useMemo(() => ({
-    nodes,
-    links
-  }), [nodes, links]);
+  // This state holds the data for the graph, allowing us to replace it.
+  const [graphData, setGraphData] = useState(() => ({
+    nodes: nodes.map(n => ({ ...n })), // Initial shallow copy
+    links: links.map(l => ({ ...l })), // Create a shallow copy of links as well
+  }));
+
+  // Effect to update graph data if the source nodes/links change
+  useEffect(() => {
+    // Create fresh copies of nodes and links to ensure the graph component updates
+    setGraphData({
+      nodes: nodes.map(n => ({ ...n })),
+      links: links.map(l => ({ ...l })), 
+    });
+  }, [nodes, links]);
+
+  // Restart the simulation with complete reset
+  const handleRestartSimulation = useCallback(() => {
+    console.log('=== RESTART BUTTON CLICKED ===');
+    console.log('Forcing complete graph reset by creating new node and link objects');
+    
+    // Create a fresh set of nodes and links to discard old positions/velocities
+    setGraphData({
+      nodes: nodes.map(n => ({ ...n })),
+      links: links.map(l => ({ ...l })), 
+    });
+    
+    // Reheat the simulation to ensure it starts moving
+    if (forceRef.current) {
+      forceRef.current.d3ReheatSimulation();
+    }
+    
+    console.log('Graph reset triggered');
+  }, [nodes, links]);
 
   // Get node size based on configuration
   const getNodeSize = useCallback((node: GraphNode): number => {
@@ -258,6 +278,7 @@ const GraphView: React.FC = () => {
 
     return '#69b7d4'; // Default blue for entity relationships
   }, [config.graph?.edges, data.manualRelationshipsConfig]);
+
   // Get link style (dash pattern) based on category
   const getLinkDashArray = useCallback((link: GraphLink): number[] | null => {
     const edgeConfig = config.graph?.edges;
@@ -365,9 +386,7 @@ const GraphView: React.FC = () => {
             )}
           </div>
         )}
-      </div>
-
-      <div className="graph-container">        <ForceGraph2D
+      </div>      <div className="graph-container">        <ForceGraph2D
           ref={forceRef}
           graphData={graphData}
           width={config.graph.width || 800}
